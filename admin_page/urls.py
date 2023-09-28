@@ -11,6 +11,4 @@ urlpatterns = [
     path('table/', views.table, name='table'),
     path('typography/', views.typography, name='typography'),
     path('widget/', views.widget, name='widget'),
-    path('signin/', views.signin, name='signin'),
-    path('signup/', views.signup, name='signup'),
 ]

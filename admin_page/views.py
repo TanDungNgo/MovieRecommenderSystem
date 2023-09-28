@@ -20,7 +20,4 @@ def typography(request):
     return render(request, 'typography.html')
 def widget(request):
     return render(request, 'widget.html')
-def signin(request):
-    return render(request, 'signin.html')
-def signup(request):
-    return render(request, 'signup.html')
+

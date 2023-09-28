@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Planet</title>
+	<title>DPT Movies</title>
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
     <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet">
     <link href="{% static 'css/global.css' %}" rel="stylesheet">
@@ -35,7 +35,7 @@
 		</div>
    </div>
   </div>
-  <div class="col-md-4">
+  <!-- <div class="col-md-4">
    <div class="top_1r text-end">
      <ul class="social-network social-circle mb-0">
 			<li><a href="#" class="icoRss" title="Rss"><i class="fa fa-instagram"></i></a></li>
@@ -45,7 +45,7 @@
 			<li><a href="#" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
 		</ul>
    </div>
-  </div>
+  </div> -->
  </div>
 </div>
 </section>
@@ -53,7 +53,7 @@
 <section id="header">
 <nav class="navbar navbar-expand-md navbar-light" id="navbar_sticky">
   <div class="container">
-    <a class="navbar-brand text-white fw-bold" href="index.html"><i class="fa fa-video-camera col_red me-1"></i> Planet</a>
+    <a class="navbar-brand text-white fw-bold" href="{% url 'index' %}"><i class="fa fa-video-camera col_red me-1"></i> Planet</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
