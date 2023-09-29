@@ -125,7 +125,6 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     BASE_DIR / "movie/static",
     BASE_DIR / "admin_page/static",
-    BASE_DIR / "user_page/static",
 ]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
