@@ -30,48 +30,11 @@
           </div>
         </div>
       </div>
-      <!-- <div class="col-md-4">
-        <div class="top_1r text-end">
-          <ul class="social-network social-circle mb-0">
-            <li>
-              <a href="#" class="icoRss" title="Rss"
-                ><i class="fa fa-instagram"></i
-              ></a>
-            </li>
-            <li>
-              <a href="#" class="icoFacebook" title="Facebook"
-                ><i class="fa fa-facebook"></i
-              ></a>
-            </li>
-            <li>
-              <a href="#" class="icoTwitter" title="Twitter"
-                ><i class="fa fa-twitter"></i
-              ></a>
-            </li>
-            <li>
-              <a href="#" class="icoGoogle" title="Google +"
-                ><i class="fa fa-youtube"></i
-              ></a>
-            </li>
-            <li>
-              <a href="#" class="icoLinkedin" title="Linkedin"
-                ><i class="fa fa-linkedin"></i
-              ></a>
-            </li>
-          </ul>
-        </div>
-      </div> -->
       <div class="col-md-4">
-        <!-- <a class="button" style="margin-left: 310px; height: 38px;" href="{% url 'signin' %}">Sign In</a> -->
-        <nav>
-          <div>
-            <a href="{% url 'signin' %}">
-              <button>Sign In</button>
-            </a>
-              
-          </div>
-      </nav>
-      </div>
+        <div class="top_1r text-end">
+           <a href= "{% url 'signin' %}" class="button" style="height: 36px; padding: 6px 20px; border-radius: 0.1875rem;"  >Sign In</a>
+        </div>
+       </div>
     </div>
   </div>
 </section>
@@ -79,7 +42,7 @@
 <section id="header">
   <nav class="navbar navbar-expand-md navbar-light" id="navbar_sticky">
     <div class="container">
-      <a class="navbar-brand text-white fw-bold" href="index.html"
+      <a class="navbar-brand text-white fw-bold" href="{% url 'index' %}"
         ><i class="fa fa-video-camera col_red me-1"></i>
         <span class="col_red">DPT</span> Movie</a
       >
@@ -133,5 +96,6 @@
         </ul>
       </div>
     </div>
+    
   </nav>
 </section>
