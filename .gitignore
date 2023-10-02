@@ -1,0 +1,29 @@
+# Virtual Environment
+venv/
+
+# Static files (sẽ được tạo bởi "collectstatic")
+staticfiles/
+
+# Các tệp được tạo bởi IDE hoặc trình soạn thảo code
+.vscode/
+.idea/
+
+# Log và các tệp tạm thời
+*.log
+__pycache__/
+*.pyc
+*.pyo
+__pycache__/
+.cache/
+.pytest_cache/
+.coverage
+
+# Các tệp cấu hình cụ thể cho các công cụ cụ thể (ví dụ: PyCharm)
+.idea/
+
+# Các tệp gắn thẻ tự động (ví dụ: *.pyc, *.pyo)
+__pycache__/
+
+# Tệp sử dụng cho việc đặt cấu hình và môi trường cụ thể
+.env
+.env.*
