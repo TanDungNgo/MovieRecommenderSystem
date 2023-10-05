@@ -1,3 +1,5 @@
+{% load static %}
+
 <section id="top">
   <div class="container">
     <div class="row top_1">
@@ -30,12 +32,12 @@
           </div>
         </div>
       </div>
-      <div class="col-md-4">
+      <!-- <div class="col-md-4">
         <div class="top_1r text-end">
            <a href= "{% url 'signin' %}" class="button" style="height: 36px; padding: 6px 20px; border-radius: 0.1875rem;"  >Sign In</a>
         </div>
-       </div>
-    </div>
+       </div> -->
+       
   </div>
 </section>
 
@@ -95,6 +97,34 @@
           </li>
         </ul>
       </div>
+      <div class="col-md-4" >
+        <div class="top_1r text-end" >
+          {% if request.session.user_id %}
+            <!-- Hiển thị avata hoặc tên người dùng -->
+            <!-- Navbar Start -->
+            <div class="navbar navbar-expand bg-secondary navbar-dark sticky-top px-4 py-0" style="background-color: #191a1d!important;">
+              <div class="navbar-nav align-items-center ms-auto" >   
+                  <div class="nav-item dropdown">
+                      <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                          <img class="rounded-circle me-lg-2" src="{% static 'img/img48.jpg' %}" alt="" style="width: 40px; height: 40px;">
+                          <span class="d-none d-lg-inline-flex">Phuong Tran</span>
+                      </a>
+                      <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
+                          <a href="#" class="dropdown-item">My Profile</a>
+                          <a href="#" class="dropdown-item">Settings</a>
+                          <a href="{% url 'signout' %}" class="dropdown-item">Log Out</a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <!-- Navbar End -->
+          {% else %}
+            <!-- Hiển thị nút Sign In nếu người dùng chưa đăng nhập -->
+            <a href="{% url 'signin' %}" class="button" style="height: 36px; padding: 6px 20px; border-radius: 0.1875rem;">Sign In</a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
     </div>
     
   </nav>
