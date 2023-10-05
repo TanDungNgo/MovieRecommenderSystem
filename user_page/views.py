@@ -14,7 +14,17 @@ def signin(request):
                 if user.password == password:
                     # Tạo một phiên làm việc tùy chỉnh
                     request.session['user_id'] = user.id
-                    return redirect('index')  # Thay 'success_page' bằng URL bạn muốn chuyển hướng đến sau khi đăng nhập thành công
+                    request.session['user_username'] = user.username
+                    # request.session['user_avatar'] = user.avatar.url
+                    request.session['user_role'] = user.role
+                    # Điều hướng tới trang tương ứng
+                    if user.role == 'user':
+                        # Điều hướng sang trang user
+                        return redirect('index')
+                    if user.role == 'admin':
+                        # Điều hướng sang trang admin
+                       return redirect('/admin/')
+                    
                 else:
                     # Đăng nhập thất bại, hiển thị thông báo lỗi
                     messages.error(request, 'Email or password is incorrect.')
@@ -46,7 +56,7 @@ def signup(request):
             return render(request, 'signup.html')
 
         # Nếu không có lỗi, tạo một đối tượng MyUser và lưu vào cơ sở dữ liệu
-        user = MyUser(username=username, email=email, password=password)
+        user = MyUser(username=username, email=email, password=password, role = 'user')
         user.save()
 
         # Bạn có thể thêm mã xử lý khác ở đây, chẳng hạn như xử lý avatar và role
@@ -55,6 +65,7 @@ def signup(request):
         return redirect('signin')  # Thay 'success_page' bằng URL bạn muốn chuyển hướng đến sau khi đăng ký
 
     return render(request, 'signup.html')
+
 
 def signout(request):
     logout(request)
