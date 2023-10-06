@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from .models import MyUser
 from django.contrib import messages
 from django.contrib.auth import logout
+from django.conf import settings
 def signin(request):
     if request.method == 'POST':
         email = request.POST['email']
@@ -15,8 +16,14 @@ def signin(request):
                     # Tạo một phiên làm việc tùy chỉnh
                     request.session['user_id'] = user.id
                     request.session['user_username'] = user.username
-                    # request.session['user_avatar'] = user.avatar.url
                     request.session['user_role'] = user.role
+                    # Kiểm tra xem user có avatar không
+                    if user.avatar:
+                        request.session['user_avatar'] = user.avatar.url
+                    else:
+                        # Đặt URL của ảnh mặc định nếu không có avatar
+                       default_avatar_path = 'img/avatar.jpg'
+                       request.session['user_avatar'] = default_avatar_path  # Thay đổi đường dẫn thành ảnh mặc định của bạn
                     # Điều hướng tới trang tương ứng
                     if user.role == 'user':
                         # Điều hướng sang trang user
