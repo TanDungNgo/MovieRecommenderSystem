@@ -1,12 +1,12 @@
 from django.contrib import admin
-from .models import User, Movie, Genre, Cast, Director, Keyword, SpokenLanguage, Country, Rating, Review
+from .models import MyUser, Movie, Genre, Cast, Director, Keyword, SpokenLanguage, Country, Rating, Review
 
 # Register your models here.
 class UserAdmin(admin.ModelAdmin):
-    list_display = ('name', 'email', 'role')
-    search_fields = ('name', 'email')
+    list_display = ('username', 'email', 'role')
+    search_fields = ('username', 'email')
 
-admin.site.register(User, UserAdmin)
+admin.site.register(MyUser, UserAdmin)
 
 class MovieAdmin(admin.ModelAdmin):
     list_display = ('title', 'release_date', 'status')

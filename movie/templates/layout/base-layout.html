@@ -20,8 +20,26 @@
       rel="stylesheet"
     />
     <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/toastr.css' %}" media="all">
+    <script type="text/javascript" src="{% static 'js/toastr.min.js' %}"></script>
   </head>
   <body>
+    {% if messages %}
+        {% for message in messages %}
+                <script type=text/javascript>
+                    $.toast({
+                        heading: 'Success',
+                        text: '{{ message }}',
+                        showHideTransition: 'slide',
+                        icon: 'success',
+                        position: 'top-right', 
+                        loaderBg: '#05BD11'
+                    })
+                </script>
+        {% endfor %}
+    {% endif %}
     {% include 'layout/header.html' %} {% block content %} {% endblock %} 
     {% include 'layout/footer.html' %}
     <script>
