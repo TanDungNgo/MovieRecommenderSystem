@@ -31,6 +31,7 @@
     <!-- Template Stylesheet -->
     <link href="{% static 'css/style.css' %}" rel="stylesheet">
     <link href="{% static 'css/registration.css' %}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/toastr.css' %}" media="all">
 </head>
 
 <body>
@@ -65,15 +66,6 @@
                             </div>
                             <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Sign Up</button>
                         </form>
-                        {% if messages %}
-                        <div class="alert alert-danger">
-                            <ul>
-                                {% for message in messages %}
-                                <li>{{ message }}</li>
-                                {% endfor %}
-                            </ul>
-                        </div>
-                        {% endif %}
                         <p class="text-center mb-0">Already have an Account? <a href="{% url 'signin' %}">Sign In</a></p>
                     </div>
                 </div>
@@ -93,9 +85,31 @@
     <script src="{% static 'lib/tempusdominus/js/moment-timezone.min.js' %}"></script>
     <script src="{% static 'lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js' %}"></script>
 
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="{% static 'js/toastr.min.js' %}"></script>
+
 
     <!-- Template Javascript -->
     <script src="{% static 'js/main.js' %}"></script>
+    {% if messages %}
+    {% for message in messages %}
+        <script type="text/javascript">
+            if ('{{ message.tags }}' == 'error') {
+                var loaderBgColor = '#FF0000';
+            } else {
+                var loaderBgColor = '#05BD11';
+            }
+            $.toast({
+                heading: '{{ message.tags }}',
+                text: '{{ message }}',
+                showHideTransition: 'slide',
+                icon: '{{ message.tags }}',
+                position: 'top-right', 
+                loaderBg: loaderBgColor,
+            });
+        </script>
+    {% endfor %}
+    {% endif %}
 </body>
 
 </html>
