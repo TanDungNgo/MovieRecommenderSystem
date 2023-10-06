@@ -110,9 +110,9 @@
                           <span class="d-none d-lg-inline-flex">{{ request.session.user_username }}</span>
                       </a>
                       <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
-                          <a href="#" class="dropdown-item">My Profile</a>
-                          <a href="#" class="dropdown-item">Settings</a>
-                          <a href="{% url 'signout' %}" class="dropdown-item">Sign Out</a>
+                          <a href="#" class="dropdown-item"  style="font-weight: bold;">My Profile</a>
+                          <a href="#" class="dropdown-item"  style="font-weight: bold;">Settings</a>
+                          <a href="{% url 'signout' %}" class="dropdown-item"  style="font-weight: bold;">Sign Out</a>
                       </div>
                   </div>
               </div>
@@ -120,7 +120,7 @@
           <!-- Navbar End -->
           {% else %}
             <!-- Hiển thị nút Sign In nếu người dùng chưa đăng nhập -->
-            <a href="{% url 'signin' %}" class="button" style="height: 36px; padding: 6px 20px; border-radius: 0.1875rem;">Sign In</a>
+            <a href="{% url 'signin' %}" class="button" style="height: 36px; padding: 6px 20px; border-radius: 0.1875rem; font-weight: bold;">Sign In</a>
           {% endif %}
         </div>
       </div>

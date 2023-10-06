@@ -30,7 +30,7 @@ def signin(request):
                         return redirect('index')
                     if user.role == 'admin':
                         # Điều hướng sang trang admin
-                       return redirect('/admin/')
+                       return redirect('admin')
                     
                 else:
                     # Đăng nhập thất bại, hiển thị thông báo lỗi
