@@ -1,10 +1,11 @@
 from django.db import models
+from user_page.models import User
 
 class Movie(models.Model):
     title = models.CharField(max_length=255)
-    poster = models.ImageField(upload_to='img/')
+    poster = models.ImageField(upload_to='admin_page/static/img/', blank=False, null=False)
     overview = models.TextField()
-    movie_duration = models.DurationField()
+    movie_duration = models.TextField()
     release_date = models.DateField()
     status = models.TextField()
 
