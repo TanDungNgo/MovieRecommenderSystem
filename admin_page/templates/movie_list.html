@@ -30,6 +30,7 @@
 
     <!-- Template Stylesheet -->
     <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'css/create_movie.css' %}" rel="stylesheet">
 </head>
 
 <body>
@@ -62,14 +63,12 @@
                 <div class="navbar-nav w-100">
                     <a href="{% url 'general' %}" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
                     <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Elements</a>
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Movie</a>
                         <div class="dropdown-menu bg-transparent border-0">
-                            <a href="{% url 'button' %}" class="dropdown-item">Buttons</a>
-                            <a href="{% url 'element' %}" class="dropdown-item">Other Elements</a>
+                            <a href="{% url 'create_movie' %}" class="dropdown-item"><i class="fa fa-plus me-2"></i>New</a>
+                            <a href="{% url 'movie_list' %}" class="dropdown-item"><i class="fa fa-list me-2"></i>All movies</a>
                         </div>
                     </div>
-                    <a href="{% url 'table' %}" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Tables</a>
-                    <a href="{% url 'chart' %}" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Charts</a>
                 </div>
             </nav>
         </div>
@@ -169,48 +168,45 @@
             <!-- Navbar End -->
 
 
-            <!-- Chart Start -->
+            <!-- Table Start -->
             <div class="container-fluid pt-4 px-4">
-                <div class="row g-4">
-                    <div class="col-sm-12 col-xl-6">
+                <div class="row g-4">                        
+                    <div class="col-12">
                         <div class="bg-secondary rounded h-100 p-4">
-                            <h6 class="mb-4">Single Line Chart</h6>
-                            <canvas id="line-chart"></canvas>
-                        </div>
-                    </div>
-                    <div class="col-sm-12 col-xl-6">
-                        <div class="bg-secondary rounded h-100 p-4">
-                            <h6 class="mb-4">Multiple Line Chart</h6>
-                            <canvas id="salse-revenue"></canvas>
-                        </div>
-                    </div>
-                    <div class="col-sm-12 col-xl-6">
-                        <div class="bg-secondary rounded h-100 p-4">
-                            <h6 class="mb-4">Single Bar Chart</h6>
-                            <canvas id="bar-chart"></canvas>
-                        </div>
-                    </div>
-                    <div class="col-sm-12 col-xl-6">
-                        <div class="bg-secondary rounded h-100 p-4">
-                            <h6 class="mb-4">Multiple Bar Chart</h6>
-                            <canvas id="worldwide-sales"></canvas>
-                        </div>
-                    </div>
-                    <div class="col-sm-12 col-xl-6">
-                        <div class="bg-secondary rounded h-100 p-4">
-                            <h6 class="mb-4">Pie Chart</h6>
-                            <canvas id="pie-chart"></canvas>
-                        </div>
-                    </div>
-                    <div class="col-sm-12 col-xl-6">
-                        <div class="bg-secondary rounded h-100 p-4">
-                            <h6 class="mb-4">Doughnut Chart</h6>
-                            <canvas id="doughnut-chart"></canvas>
+                            <h6 class="mb-4">Responsive Table</h6>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Title</th>
+                                            <th>Overview</th>
+                                            <th>Duration</th>
+                                            <th>Release Date</th>
+                                            <th>Status</th>
+                                            <th>Poster</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for movie in movie_list %}
+                                        <tr>
+                                            <td>{{ movie.id }}</td>
+                                            <td style="max-width: 120px;">{{ movie.title }}</td>
+                                            <td style="max-width: 330px;">{{ movie.overview }}</td>
+                                            <td>{{ movie.movie_duration }}</td>
+                                            <td>{{ movie.release_date }}</td>
+                                            <td>{{ movie.status }}</td>
+                                            <td>{{ movie.poster }}</td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- Chart End -->
+            <!-- Table End -->
 
 
             <!-- Footer Start -->
@@ -245,6 +241,7 @@
 
     <!-- Template Javascript -->
     <script src="{% static 'js/main.js' %}"></script>
+    <script src="{% static 'js/form.js' %}"></script>
 </body>
 
 </html>

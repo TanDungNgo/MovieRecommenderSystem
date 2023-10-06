@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'movie',
     'admin_page',
     'user_page',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
