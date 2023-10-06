@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from .models import MyUser
 from django.contrib import messages
 from django.contrib.auth import logout
-from django.conf import settings
+from django.contrib import messages
 def signin(request):
     if request.method == 'POST':
         email = request.POST['email']
@@ -25,6 +25,7 @@ def signin(request):
                        default_avatar_path = 'img/avatar.jpg'
                        request.session['user_avatar'] = default_avatar_path  # Thay đổi đường dẫn thành ảnh mặc định của bạn
                     # Điều hướng tới trang tương ứng
+                    messages.success(request, 'Login successfully.')
                     if user.role == 'user':
                         # Điều hướng sang trang user
                         return redirect('index')
@@ -69,6 +70,7 @@ def signup(request):
         # Bạn có thể thêm mã xử lý khác ở đây, chẳng hạn như xử lý avatar và role
 
         # Chuyển hướng người dùng sau khi đăng ký thành công
+        messages.success(request, 'Signup successfully.')
         return redirect('signin')  # Thay 'success_page' bằng URL bạn muốn chuyển hướng đến sau khi đăng ký
 
     return render(request, 'signup.html')
@@ -76,4 +78,5 @@ def signup(request):
 
 def signout(request):
     logout(request)
+    messages.success(request, 'Logout successfully.')
     return redirect('signin')  # Điều hướng sau khi đăng xuất (thay 'login' bằng URL của trang đăng nhập của bạn)

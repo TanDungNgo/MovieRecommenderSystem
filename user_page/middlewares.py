@@ -12,8 +12,9 @@ class AdminAccessMiddleware:
             if user_role != 'admin':
                 # Chặn người dùng truy cập vào các đường dẫn chỉ dành cho admin
                 if request.path.startswith('/admin/'):
-                    return redirect('/signin')
-        
+
+                    return redirect('/signin/')
+    
         response = self.get_response(request)
         return response
 
