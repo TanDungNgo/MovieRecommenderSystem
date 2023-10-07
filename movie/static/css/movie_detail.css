@@ -37,3 +37,7 @@ h5{
 span{
     font-weight: 100;
 }
+
+.card-space{
+    border: 5px solid #27292d;
+}
