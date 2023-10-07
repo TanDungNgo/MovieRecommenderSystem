@@ -18,11 +18,13 @@
           <div class="input-group">
             <input
               type="text"
+              id="searchInput"
               class="form-control bg-black"
               placeholder="Search Site..."
             />
             <span class="input-group-btn">
               <button
+                id="searchButton"
                 class="btn btn text-white bg_red rounded-0 border-0"
                 type="button"
               >
@@ -31,6 +33,29 @@
             </span>
           </div>
         </div>
+        <script>
+          document.addEventListener("DOMContentLoaded", function() {
+            const searchInput = document.getElementById("searchInput");
+            const searchButton = document.getElementById("searchButton");
+        
+            searchInput.addEventListener("keypress", function(event) {
+              if (event.key === "Enter") {
+                performSearch();
+              }
+            });
+        
+            searchButton.addEventListener("click", function() {
+              performSearch();
+            });
+        
+            function performSearch() {
+              const searchTerm = searchInput.value.trim(); 
+              if (searchTerm) {
+                window.location.href = "{% url 'search_page' %}?search=" + encodeURIComponent(searchTerm);
+              }
+            }
+          });
+        </script>
       </div>
       <!-- <div class="col-md-4">
         <div class="top_1r text-end">
