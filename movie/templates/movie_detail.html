@@ -1,0 +1,51 @@
+{% extends "layout/base-layout.html" %}
+{% load static %}
+
+{% block title %}Movie Detail{% endblock %}
+{% block content %}
+
+<section id="popular" class="pt-4 pb-5 bg_grey">
+    <div class="card-container">
+		<div class="card-top">
+            <div class="card-top-img">
+                <img src="{% static 'img/The_Croods.jpg' %}">
+	        </div>
+            <div class="card-top-info">
+                <h4 class="mb-0"><span class="col_red">The Croods</span></h4>
+                <h5><span>Yearning to explore the great outdoors and see firsthand what lies beyond their 
+                    rocky cave, the prehistoric teenage cave-girl, Eep, is the first in the large 
+                    Croods family who thirsts for adventure. However, when her overprotective but 
+                    well-meaning father, Grug, who believes that there's no safer place than their 
+                    cave, sees their home fall apart, the Croods will have no other choice but to 
+                    run for their lives in the dangerous Palaeolithic landscapes for the first time 
+                    in their lives. Under those grave circumstances, only a confident cave-teen named 
+                    Guy seems to know something about the impending global catastrophe, but, will Grug, 
+                    and the rest of the family, believe him? In the end, will the Croods find a new 
+                    place to call home?</span></h5><br><br><br>
+                <h5>Rating:
+                    <i class="fa fa-star align-middle"></i>
+                    <i class="fa fa-star align-middle"></i>
+                    <i class="fa fa-star align-middle"></i>
+                    <i class="fa fa-star align-middle"></i>
+                    <i class="fa fa-star align-middle"></i>
+                </h5>
+                <h5>Duration:<span> 98 minutes</span></h5>
+                <h5>Release Date:<span> 22/03/2013</span></h5>
+                <h5>Genre:<span> Animation, Action, Adventure</span></h5>
+                <h5>Actor:<span> Nicolas Cage, Emma Stone, Ryan Reynolds, Catherine Keener, 
+                    Cloris Leachman, Clark Duke, Chris Sanders, Randy Thom</span></h5>
+                <h5>Director:<span> Kirk DeMicco, Chris Sanders</span></h5>
+                <h5>Country:<span> United States</span></h5>
+            </div>
+		</div>
+		<!-- <div class="card-bottom">
+		    <div class="card-bottom-title">
+		        <h5><span class="col_white">Overview</a></h5>
+		    </div>
+            <div class="card-bottom-content">
+
+            </div>
+		</div> -->
+	</div>
+</section>
+{% endblock %}

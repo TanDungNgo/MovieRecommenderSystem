@@ -13,3 +13,7 @@ def services(request):
     return render(request, 'services.html')
 def contact(request):
     return render(request, 'contact.html')
+def movie_list(request):
+    return render(request, 'movie_list.html')
+def movie_detail(request):
+    return render(request, 'movie_detail.html')

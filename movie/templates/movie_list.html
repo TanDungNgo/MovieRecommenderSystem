@@ -1,0 +1,224 @@
+{% extends "layout/base-layout.html" %}
+{% load static %}
+
+{% block title %}Movie{% endblock %}
+{% block content %}
+
+<section id="trend" class="pt-4 pb-5">
+    <div class="container">
+      <div class="row trend_2 mt-4">
+        <div class="col-md-3 col-6 mb-4">
+          <div class="trend_2im clearfix position-relative">
+            <div class="trend_2im1 clearfix">
+              <div class="grid">
+                <figure class="effect-jazz mb-0">
+                  <img src="{% static 'img/TheCroods2.jpg' %}" class="d-block w-100" alt="...">
+                </figure>
+              </div>
+            </div>
+            <div class="trend_2im2 clearfix text-center position-absolute w-100 top-0">
+              <span class="fs-1"><a class="col_red" href="#"><i class="fa fa-youtube-play"></i></a></span>
+            </div>
+          </div>
+          <div class="trend_2ilast bg_grey p-3 clearfix">
+            <h5><a class="col_red" href="{% url 'movie_detail' %}" id="showModal">The Croods</a></h5>
+            <p class="mb-2">The Croods is a 2013 animation film written, directed, and produced</p>
+            <span class="col_red">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+            </span>
+            <p class="mb-0">1 Views</p>
+          </div>
+        </div>
+        <div class="col-md-3 col-6 mb-4">
+          <div class="trend_2im clearfix position-relative">
+            <div class="trend_2im1 clearfix">
+              <div class="grid">
+                <figure class="effect-jazz mb-0">
+                  <img src="{% static 'img/05.jpg' %}" class="d-block w-100" alt="...">
+                </figure>
+              </div>
+            </div>
+            <div class="trend_2im2 clearfix text-center position-absolute w-100 top-0">
+              <span class="fs-1"><a class="col_red" href="#"><i class="fa fa-youtube-play"></i></a></span>
+            </div>
+          </div>
+          <div class="trend_2ilast bg_grey p-3 clearfix">
+            <h5><a class="col_red" href="#">Ashura Gladiator</a></h5>
+            <p class="mb-2">The Life and Death Tournament is extremely intense: corporate bosses</p>
+            <span class="col_red">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+            </span>
+            <p class="mb-0">1 Views</p>
+          </div>
+        </div>
+        <div class="col-md-3 col-6 mb-4">
+          <div class="trend_2im clearfix position-relative">
+            <div class="trend_2im1 clearfix">
+              <div class="grid">
+                <figure class="effect-jazz mb-0">
+                  <img src="{% static 'img/06.jpg' %}" class="d-block w-100" alt="...">
+                </figure>
+              </div>
+            </div>
+            <div class="trend_2im2 clearfix text-center position-absolute w-100 top-0">
+              <span class="fs-1"><a class="col_red" href="#"><i class="fa fa-youtube-play"></i></a></span>
+            </div>
+          </div>
+          <div class="trend_2ilast bg_grey p-3 clearfix">
+            <h5><a class="col_red" href="#">Magic Hand</a></h5>
+            <p class="mb-2">Magic Hands is about a veterinarian with psychic powers and a detective</p>
+            <span class="col_red">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+            </span>
+            <p class="mb-0">1 Views</p>
+          </div>
+        </div>
+        <div class="col-md-3 col-6 mb-4">
+          <div class="trend_2im clearfix position-relative">
+            <div class="trend_2im1 clearfix">
+              <div class="grid">
+                <figure class="effect-jazz mb-0">
+                  <img src="{% static 'img/07.jpg' %}" class="d-block w-100" alt="...">
+                </figure>
+              </div>
+            </div>
+            <div class="trend_2im2 clearfix text-center position-absolute w-100 top-0">
+              <span class="fs-1"><a class="col_red" href="#"><i class="fa fa-youtube-play"></i></a></span>
+            </div>
+          </div>
+          <div class="trend_2ilast bg_grey p-3 clearfix">
+            <h5><a class="col_red" href="#">Heart Of Darkness</a></h5>
+            <p class="mb-2">Heart of Darkness is a 1993 television film adaptation of Joseph Conrad's</p>
+            <span class="col_red">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+            </span>
+            <p class="mb-0">1 Views</p>
+          </div>
+        </div>
+      </div>
+      <div class="row trend_2 mt-4">
+        <div class="col-md-3 col-6 mb-4">
+          <div class="trend_2im clearfix position-relative">
+            <div class="trend_2im1 clearfix">
+              <div class="grid">
+                <figure class="effect-jazz mb-0">
+                    <img src="{% static 'img/08.jpg' %}" class="d-block w-100" alt="...">
+                </figure>
+              </div>
+            </div>
+            <div class="trend_2im2 clearfix text-center position-absolute w-100 top-0">
+              <span class="fs-1"><a class="col_red" href="#"><i class="fa fa-youtube-play"></i></a></span>
+            </div>
+          </div>
+          <div class="trend_2ilast bg_grey p-3 clearfix">
+            <h5><a class="col_red" href="#">King the Land</a></h5>
+            <p class="mb-2">King The Land in the midst of a tense inheritance battle</p>
+            <span class="col_red">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+            </span>
+            <p class="mb-0">1 Views</p>
+          </div>  
+        </div>
+        <div class="col-md-3 col-6 mb-4">
+          <div class="trend_2im clearfix position-relative">
+            <div class="trend_2im1 clearfix">
+              <div class="grid">
+                <figure class="effect-jazz mb-0">
+                  <img src="{% static 'img/09.jpg' %}" class="d-block w-100" alt="...">
+                </figure>
+              </div>
+            </div>
+            <div class="trend_2im2 clearfix text-center position-absolute w-100 top-0">
+               <span class="fs-1"><a class="col_red" href="#"><i class="fa fa-youtube-play"></i></a></span>
+            </div>
+          </div>
+          <div class="trend_2ilast bg_grey p-3 clearfix">
+            <h5><a class="col_red" href="#">Fubar</a></h5>
+            <p class="mb-2">FUBAR is about a CIA operative (Schwarzenegger)</p>
+            <span class="col_red">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+            </span>
+            <p class="mb-0">1 Views</p>
+          </div>  
+        </div>
+        <div class="col-md-3 col-6 mb-4">
+          <div class="trend_2im clearfix position-relative">
+            <div class="trend_2im1 clearfix">
+              <div class="grid">
+                <figure class="effect-jazz mb-0">
+                  <img src="{% static 'img/img10.jpg' %}" class="d-block w-100" alt="...">
+                </figure>
+              </div>
+            </div>
+            <div class="trend_2im2 clearfix text-center position-absolute w-100 top-0">
+               <span class="fs-1"><a class="col_red" href="#"><i class="fa fa-youtube-play"></i></a></span>
+            </div>
+          </div>
+          <div class="trend_2ilast bg_grey p-3 clearfix">
+            <h5><a class="col_red" href="#">Our Beloved Summer</a></h5>
+            <p class="mb-2">Our Beloved Summer belongs to the Romantic Comedy movie genre</p>
+            <span class="col_red">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+            </span>
+            <p class="mb-0">1 Views</p>
+          </div>  
+        </div>
+        <div class="col-md-3 col-6 mb-4">
+          <div class="trend_2im clearfix position-relative">
+            <div class="trend_2im1 clearfix">
+              <div class="grid">
+                <figure class="effect-jazz mb-0">
+                  <img src="{% static 'img/img11.jpg' %}" class="d-block w-100" alt="...">
+                </figure>
+              </div>
+            </div>
+            <div class="trend_2im2 clearfix text-center position-absolute w-100 top-0">
+               <span class="fs-1"><a class="col_red" href="#"><i class="fa fa-youtube-play"></i></a></span>
+            </div>
+          </div>
+          <div class="trend_2ilast bg_grey p-3 clearfix">
+            <h5><a class="col_red" href="#">D*P</a></h5>
+            <p class="mb-2">D. P is teaching us very valuable lessons about bullying. </p>
+            <span class="col_red">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+            </span>
+            <p class="mb-0">1 Views</p>
+          </div>  
+        </div>
+      </div>
+    </div>
+</section>
+  
+{% endblock %}
