@@ -22,7 +22,7 @@ def signin(request):
                         request.session['user_avatar'] = user.avatar.url
                     else:
                         # Đặt URL của ảnh mặc định nếu không có avatar
-                       default_avatar_path = 'img/avatar.jpg'
+                       default_avatar_path = '/img/avatar.jpg'
                        request.session['user_avatar'] = default_avatar_path  # Thay đổi đường dẫn thành ảnh mặc định của bạn
                     # Điều hướng tới trang tương ứng
                     messages.success(request, 'Login successfully.')

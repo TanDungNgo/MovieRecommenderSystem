@@ -27,3 +27,7 @@ __pycache__/
 # Tệp sử dụng cho việc đặt cấu hình và môi trường cụ thể
 .env
 .env.*
+env/*
+
+# Các tệp model machine learning
+MovieRecommenderSystem/model/*

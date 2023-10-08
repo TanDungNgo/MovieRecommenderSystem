@@ -84,9 +84,9 @@ WSGI_APPLICATION = 'MovieRecommenderSystem.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'db_movie',
+        'NAME': 'movie_recommender_system',
         'USER': 'root',
-        'PASSWORD': '123456789', # Mật khẩu MySQL
+        'PASSWORD': '', # Mật khẩu MySQL
         'HOST': 'localhost', 
         'PORT': '3306', 
     },
