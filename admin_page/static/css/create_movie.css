@@ -118,3 +118,9 @@ input[type="file"] {
 .btn-cancel:hover{
     background-color: #111;
 }
+
+
+.table th:nth-child(7), /* Chọn cột "Poster" */
+.table td:nth-child(7) {
+    width: 120px;
+}
