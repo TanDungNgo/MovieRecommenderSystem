@@ -80,3 +80,6 @@ def signout(request):
     logout(request)
     messages.success(request, 'Logout successfully.')
     return redirect('signin')  # Điều hướng sau khi đăng xuất (thay 'login' bằng URL của trang đăng nhập của bạn)
+
+def profile(request):
+    return render(request, 'profile.html')
