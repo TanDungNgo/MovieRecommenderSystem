@@ -12,13 +12,18 @@ class Movie(models.Model):
     def __str__(self):
         return self.title
 
-
 class Genre(models.Model):
-    movie = models.ForeignKey(Movie, on_delete=models.CASCADE)
-    genre = models.CharField(max_length=100)
+    genre_name = models.CharField(max_length=100)
 
     def __str__(self):
-        return self.genre
+        return self.genre_name
+
+class Movie_Genre(models.Model):
+    movie = models.ForeignKey(Movie, on_delete=models.CASCADE)
+    genre = models.ForeignKey(Genre, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return str(self.genre)
 
 class Cast(models.Model):
     movie = models.ForeignKey(Movie, on_delete=models.CASCADE)
@@ -63,7 +68,7 @@ class Rating(models.Model):
     rating = models.DecimalField(max_digits=1, decimal_places=1)
 
     def __str__(self):
-        return f'{self.user.name} - {self.movie.title}: {self.rating}'
+        return f'{self.user.username} - {self.movie.title}: {self.rating}'
 
 class Review(models.Model):
     user = models.ForeignKey(MyUser, on_delete=models.CASCADE)
