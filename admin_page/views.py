@@ -1,18 +1,14 @@
 from django.shortcuts import render, redirect
 from movie.models import Movie
+from user_page.models import MyUser
 from django.contrib import messages
 
 # Views of Admin
 def general(request):
-    return render(request, 'general.html')
-def button(request):
-    return render(request, 'button.html')
-def chart(request):
-    return render(request, 'chart.html')
-def element(request):
-    return render(request, 'element.html')
-def table(request):
-    return render(request, 'table.html')
+    total_movies = Movie.objects.count()
+    total_users = MyUser.objects.filter(role='user').count()
+    return render(request, 'general.html', {'total_movies': total_movies, 'total_users': total_users})
+
 def create_movie(request):
     if request.method == 'POST':
         title = request.POST['title']
@@ -43,4 +39,8 @@ def create_movie(request):
 def movie_list(request):
     movies = Movie.objects.all()
     return render(request, 'movie_list.html', {'movie_list': movies})
+
+def user_list(request):
+    users = MyUser.objects.all()
+    return render(request, 'user_list.html', {'user_list': users})
 
