@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from .models import MyUser
 from django.contrib import messages
 from django.contrib.auth import logout
-from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 def signin(request):
     if request.method == 'POST':
         email = request.POST['email']
@@ -17,6 +17,8 @@ def signin(request):
                     request.session['user_id'] = user.id
                     request.session['user_username'] = user.username
                     request.session['user_role'] = user.role
+                    request.session['user_email'] = user.email
+                    
                     # Kiểm tra xem user có avatar không
                     if user.avatar:
                         request.session['user_avatar'] = user.avatar.url
@@ -82,4 +84,9 @@ def signout(request):
     return redirect('signin')  # Điều hướng sau khi đăng xuất (thay 'login' bằng URL của trang đăng nhập của bạn)
 
 def profile(request):
-    return render(request, 'profile.html')
+    user = request.user 
+    context = {
+        'user': user,
+        'email': request.session['user_email'],
+    }
+    return render(request, 'profile.html', context)
