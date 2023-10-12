@@ -23,27 +23,44 @@ class Movie_Genre(models.Model):
     genre = models.ForeignKey(Genre, on_delete=models.CASCADE)
 
     def __str__(self):
-        return str(self.genre)
+        return self.genre
 
 class Cast(models.Model):
-    movie = models.ForeignKey(Movie, on_delete=models.CASCADE)
     character_name = models.CharField(max_length=100)
     gender = models.BooleanField()
     Role = models.TextField()
 
     def __str__(self):
         return self.character_name
+    
+class Movie_Cast(models.Model):
+    movie = models.ForeignKey(Movie, on_delete=models.CASCADE)
+    cast = models.ForeignKey(Cast, on_delete=models.CASCADE)
+    def __str__(self):
+        return self.cast
 
 class Director(models.Model):
-    movie = models.ForeignKey(Movie, on_delete=models.CASCADE)
     director_name = models.CharField(max_length=100)
 
     def __str__(self):
         return self.director_name
+    
+class Movie_Director(models.Model):
+    movie = models.ForeignKey(Movie, on_delete=models.CASCADE)
+    director = models.ForeignKey(Director, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.director
 
 class Keyword(models.Model):
-    movie = models.ForeignKey(Movie, on_delete=models.CASCADE)
     keyword = models.TextField()
+
+    def __str__(self):
+        return self.keyword
+    
+class Movie_Keyword(models.Model):
+    movie = models.ForeignKey(Movie, on_delete=models.CASCADE)
+    keyword = models.ForeignKey(Keyword, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.keyword
