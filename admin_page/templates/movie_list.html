@@ -189,7 +189,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {% for movie in movie_list %}
+                                        {% for movie in movies %}
                                         <tr>
                                             <td>{{ movie.id }}</td>
                                             <td style="max-width: 150px;">{{ movie.title }}</td>
@@ -206,6 +206,23 @@
                                         {% endfor %}
                                     </tbody>
                                 </table>
+
+                                <div class="pagination">
+                                    <span class="step-links">
+                                        {% if movies.has_previous %}
+                                            <a href="?page={{ movies.previous_page_number }}">&laquo; previous</a>
+                                        {% endif %}
+                                
+                                        <span class="current-page">
+                                            Page {{ movies.number }} of {{ movies.paginator.num_pages }}
+                                        </span>
+                                
+                                        {% if movies.has_next %}
+                                            <a href="?page={{ movies.next_page_number }}">next &raquo;</a>
+                                        {% endif %}
+                                    </span>
+                                </div>
+
                             </div>
                         </div>
                     </div>

@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from movie.models import Movie
 from user_page.models import MyUser
 from django.contrib import messages
+from django.core.paginator import Paginator
 
 # Views of Admin
 def general(request):
@@ -37,8 +38,12 @@ def create_movie(request):
     return render(request, 'create_movie.html') 
 
 def movie_list(request):
-    movies = Movie.objects.all()
-    return render(request, 'movie_list.html', {'movie_list': movies})
+    movie_list = Movie.objects.all()
+    items_per_page = 10
+    paginator = Paginator(movie_list, items_per_page)
+    page = request.GET.get('page')
+    movies = paginator.get_page(page)
+    return render(request, 'movie_list.html', {'movies': movies})
 
 def user_list(request):
     users = MyUser.objects.all()
