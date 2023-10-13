@@ -2,7 +2,8 @@ from django.shortcuts import render, redirect
 from .models import MyUser
 from django.contrib import messages
 from django.contrib.auth import logout
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.hashers import make_password
+from django.contrib.auth.hashers import check_password
 def signin(request):
     if request.method == 'POST':
         email = request.POST['email']
@@ -12,7 +13,7 @@ def signin(request):
         if email and password:
             try:
                 user = MyUser.objects.get(email=email)
-                if user.password == password:
+                if check_password(password, user.password):
                     # Tạo một phiên làm việc tùy chỉnh
                     request.session['user_id'] = user.id
                     request.session['user_username'] = user.username
@@ -66,7 +67,8 @@ def signup(request):
             return render(request, 'signup.html')
 
         # Nếu không có lỗi, tạo một đối tượng MyUser và lưu vào cơ sở dữ liệu
-        user = MyUser(username=username, email=email, password=password, role = 'user')
+        hashed_password = make_password(password)
+        user = MyUser(username=username, email=email, password=hashed_password)
         user.save()
 
         # Bạn có thể thêm mã xử lý khác ở đây, chẳng hạn như xử lý avatar và role

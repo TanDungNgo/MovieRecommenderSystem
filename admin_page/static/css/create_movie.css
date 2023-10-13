@@ -3,7 +3,7 @@
     --secondary: #191C24;
 }
 
-form {
+.card {
     display: flex;
     flex-direction: column;
     background-color: var(--secondary);
@@ -120,7 +120,7 @@ input[type="file"] {
 }
 
 
-.table th:nth-child(7), /* Chọn cột "Poster" */
+.table th:nth-child(7), 
 .table td:nth-child(7) {
     width: 120px;
 }
