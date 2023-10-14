@@ -1,9 +1,11 @@
 body{margin-top:20px;
+    background-color: red !important;
     /* color: #9b9ca1; */
     }
     /* .bg-secondary-soft {
         background-color: rgba(208, 212, 217, 0.1);
     } */
+    
     .rounded {
         border-radius: 5px !important;
     }
@@ -55,4 +57,9 @@ body{margin-top:20px;
         transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
         transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
         transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+    }
+    @media (min-width: 1400px) {
+        .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+            max-width: 1280px !important;
+        }
     }
