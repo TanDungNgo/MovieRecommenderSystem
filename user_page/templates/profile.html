@@ -1,78 +1,77 @@
 {% extends "layout/base-layout.html" %}
-{% load static %}
 {% block title %}Profile{% endblock %}
 {% block content %}
 
-<body style="background-color: #010102">
-    <div class="container" style="color: #6c757d;">
+{% load static %}
+
+<body >
+    
+    <div class="container" style="color: #6c757d; max-width: 1275px;" >
         <div class="row">
             <div class="col-12">
                 <!-- Page title -->
                 <div class="my-5">
-                    <h4 class="mb-0" style="font-size: 30px; color: white;"><i class="col_red me-1"></i> My <span
-                            class="col_red">Profile</span></h4>
-                    <hr style="color: gray">
+                    <h4 class="mb-0" style="font-size: 30px; color: white;" ><i class="col_red me-1" ></i> My <span
+                        class="col_red">Profile</span></h4> <hr style="color: gray">
                 </div>
                 <!-- Form START -->
-                <form class="file-upload" method="post">
-                    {% csrf_token %}
-                    <div class="row mb-5 gx-5">
+                <form class="file-upload" style="font-weight: bold;">
+                    <div class="row mb-5 gx-5" >
                         <!-- Contact detail -->
-                        <div class="col-xxl-8 mb-5 mb-xxl-0"
-                            style="background-color: #191a1d; border-radius: 0.25rem!important; font-weight: bold;">
+                        <div class="col-xxl-8 mb-5 mb-xxl-0"  style="background-color: #191a1d; border-radius: 0.25rem!important;">
                             <div class="bg-secondary-soft px-4 py-5 rounded">
                                 <div class="row g-3">
                                     <h4 class="mb-4 mt-0" style="color: #de1002;">Contact detail</h4>
-                                    <!-- User Name -->
+                                    <!-- User name -->
                                     <div class="col-md-6">
-                                        <label for = "username" class="form-label">User Name </label>
-                                        <input type="text" name="username" class="form-control" placeholder="" aria-label="User name"
-                                            value="{{ request.session.user_username}}"
-                                            style="background-color: #010102; border-color: black;">
+                                        <label class="form-label">User Name </label>
+                                        <input type="text" class="form-control" placeholder="" aria-label="User name"
+                                            value="{{ request.session.user_username}}" style="background-color: #010102; border-color: black;">
                                     </div>
                                     <!-- Email -->
                                     <div class="col-md-6">
-                                        <label for = "email" class="form-label">User Name </label>
-                                        <input type="email" name="email" class="form-control" placeholder="" aria-label="Email"
-                                            value="{{ request.session.user_email}}"
-                                            style="background-color: #010102; border-color: black;">
+                                        <label for="inputEmail4" class="form-label">Email</label>
+                                        <input type="email" class="form-control" id="inputEmail4"
+                                            value="{{ request.session.user_email}}" style="background-color: #010102; border-color: black;">
                                     </div>
-
-                                    <div class="row g-3">
-                                        <h4 class="my-4" style="color: #de1002;">Change Password</h4>
-                                        <!-- Old password -->
-                                        <div class="col-md-6">
-                                            <label for="old_password" class="form-label">Old password</label>
-                                            <input type="password" class="form-control" id="old_password"
-                                                style="background-color: #010102; border-color: black;">
-                                        </div>
-                                        <!-- New password -->
-                                        <div class="col-md-6">
-                                            <label for="new_password" class="form-label">New password</label>
-                                            <input type="password" class="form-control" id="new_password"
-                                                style="background-color: #010102; border-color: black;">
-                                        </div>
-                                        <!-- Confirm password -->
-                                        <div class="col-md-12">
-                                            <label for="confirm_password" class="form-label">Confirm
-                                                Password</label>
-                                            <input type="password" class="form-control" id="confirm_password"
-                                                style="background-color: #010102; border-color: black;">
-                                        </div>
+                                    <!-- First Name -->
+                                    <div class="col-md-6">
+                                        <label class="form-label">First Name </label>
+                                        <input type="text" class="form-control" placeholder="" aria-label="First name"
+                                            value=""  style="background-color: #010102; border-color: black;">
+                                    </div>
+                                    <!-- Last name -->
+                                    <div class="col-md-6">
+                                        <label class="form-label">Last Name </label>
+                                        <input type="text" class="form-control" placeholder="" aria-label="Last name"
+                                            value="" style="background-color: #010102; border-color: black;">
+                                    </div>
+                                    <!-- Phone number -->
+                                    <div class="col-md-6">
+                                        <label class="form-label">Phone number</label>
+                                        <input type="text" class="form-control" placeholder="" aria-label="Phone number"
+                                            value="" style="background-color: #010102; border-color: black;">
+                                    </div>
+                                    
+                                    <!-- Country -->
+                                    <div class="col-md-6">
+                                        <label class="form-label">Country</label>
+                                        <input type="text" class="form-control" placeholder="" aria-label="Country"
+                                            value="" style="background-color: #010102; border-color: black;">
                                     </div>
                                 </div> <!-- Row END -->
                             </div>
                         </div>
                         <!-- Upload profile -->
-                        <div class="col-xxl-4">
-                            <div class="bg-secondary-soft px-4 py-5 rounded" style="background-color: #191a1d;">
+                        <div class="col-xxl-4" >
+                            <div class="bg-secondary-soft px-4 py-5 rounded"  style="background-color: #191a1d; ">
                                 <div class="row g-3">
                                     <h4 class="mb-4 mt-0" style="color: #de1002;">Upload avatar</h4>
                                     <div class="text-center">
+                                        <!-- Image upload -->
                                         <!-- Hiển thị hình ảnh avatar -->
                                         <img id="avatar-image" src="{{ request.session.user_avatar }}" class="img-fluid"
-                                            alt="Avatar" style="width: 300px; height: 300px; object-fit: cover; ">
-
+                                            alt="Avatar" style="width: 280px; height: 280px; object-fit: cover; ">
                                         <!-- Button -->
                                         <input type="file" id="file-input" style="display: none;">
                                         <label for="file-input" class="btn btn-success-soft btn-block"
@@ -85,24 +84,81 @@
                                 </div>
                             </div>
                         </div>
-
                     </div> <!-- Row END -->
 
+                    <!-- Social media detail -->
+                    <div class="row mb-5 gx-5">
+                        <div class="col-xxl-6 mb-5 mb-xxl-0"  style="background-color: #191a1d; border-radius: 0.25rem!important;">
+                            <div class="bg-secondary-soft px-4 py-5 rounded" >
+                                <div class="row g-3">
+                                    <h4 class="mb-4 mt-0" style="color: #de1002;">Social media detail</h4>
+                                    <!-- Facebook -->
+                                    <div class="col-md-6">
+                                        <label class="form-label"><i
+                                                class="fab fa fa-facebook me-2 text-facebook"></i>Facebook </label>
+                                        <input type="text" class="form-control" placeholder="" aria-label="Facebook"
+                                            value="http://www.facebook.com" style="background-color: #010102; border-color: black;">
+                                    </div>
+                                    <!-- Twitter -->
+                                    <div class="col-md-6">
+                                        <label class="form-label"><i
+                                                class="fab fa-fw fa fa-twitter text-twitter me-2"></i>Twitter </label>
+                                        <input type="text" class="form-control" placeholder="" aria-label="Twitter"
+                                            value="http://www.twitter.com" style="background-color: #010102; border-color: black;">
+                                    </div>
+                                    <!-- Linkedin -->
+                                    <div class="col-md-6">
+                                        <label class="form-label"><i
+                                                class="fab fa-fw fa fa-linkedin text-linkedin me-2"></i>Linkedin </label>
+                                        <input type="text" class="form-control" placeholder="" aria-label="Linkedin"
+                                            value="http://www.linkedin.com" style="background-color: #010102; border-color: black;">
+                                    </div>
+                                    <!-- Instragram -->
+                                    <div class="col-md-6">
+                                        <label class="form-label"><i
+                                                class="fab fa-fw fa fa-instagram text-instagram me-2"></i>Instagram </label>
+                                        <input type="text" class="form-control" placeholder="" aria-label="Instragram"
+                                            value="http://www.instragram.com" style="background-color: #010102; border-color: black;">
+                                    </div>
+                                    
+                                </div> <!-- Row END -->
+                            </div>
+                        </div>
 
+                        <!-- change password -->
+                        <div class="col-xxl-6">
+                            <div class="bg-secondary-soft px-4 py-5 rounded"  style="background-color: #191a1d;">
+                                <div class="row g-3"    style="margin-top: -40px;" >
+                                    <h4 class="my-4" style="color: #de1002;">Change Password</h4>
+                                    <!-- Old password -->
+                                    <div class="col-md-6">
+                                        <label for="exampleInputPassword1" class="form-label">Old password </label>
+                                        <input type="password" class="form-control" id="exampleInputPassword1" style="background-color: #010102; border-color: black;">
+                                    </div>
+                                    <!-- New password -->
+                                    <div class="col-md-6">
+                                        <label for="exampleInputPassword2" class="form-label">New password </label>
+                                        <input type="password" class="form-control" id="exampleInputPassword2" style="background-color: #010102; border-color: black;">
+                                    </div>
+                                    <!-- Confirm password -->
+                                    <div class="col-md-12">
+                                        <label for="exampleInputPassword3" class="form-label">Confirm Password </label>
+                                        <input type="password" class="form-control" id="exampleInputPassword3" style="background-color: #010102; border-color: black;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> <!-- Row END -->
                     <!-- button -->
                     <div class="gap-3 d-md-flex justify-content-md-end text-center" style="margin-bottom: 20px;">
-                        <button type="button" class="btn btn-danger btn-lg"
-                            style="background-color: #de1002; border-color: black;">Cancel Profile</button>
-                        <button type="submit" class="btn btn-primary btn-lg" style="border-color: black;">Update profile</button>
+                        <button type="button" class="btn btn-danger btn-lg" style="background-color: #de1002; border-color: black;">Cancel profile</button>
+                        <button type="button" class="btn btn-primary btn-lg">Update profile</button>
                     </div>
-
                 </form> <!-- Form END -->
-
             </div>
         </div>
         <hr style="color: gray">
     </div>
-
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         var originalImageSrc = "{{ request.session.user_avatar }}"; // Lấy URL ảnh gốc từ session
@@ -131,9 +187,7 @@
         });
 
     </script>
-
-
-
 </body>
+
 
 {% endblock %}
