@@ -3,7 +3,7 @@
     --secondary: #191C24;
 }
 
-.card {
+.card-create {
     display: flex;
     flex-direction: column;
     background-color: var(--secondary);

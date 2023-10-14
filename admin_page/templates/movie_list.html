@@ -6,7 +6,7 @@
   <div class="row g-4">
     <div class="col-12">
       <div class="bg-secondary rounded h-100 p-4">
-        <h6 class="mb-4">Responsive Table</h6>
+        <h6 class="mb-4">Movies in system</h6>
         <div class="table-responsive">
           <table class="table">
             <thead>
@@ -25,15 +25,13 @@
               <tr>
                 <td>{{ movie.id }}</td>
                 <td style="max-width: 150px">{{ movie.title }}</td>
-                <td style="max-width: 300px">{{ movie.overview }}</td>
+                <td style="max-width: 280px">{{ movie.overview }}</td>
                 <td>{{ movie.movie_duration }}</td>
                 <td>{{ movie.release_date }}</td>
                 <td>{{ movie.status }}</td>
                 <td>
                   <div style="width: 150px">
-                    <a href="{{ movie.poster }}" style="word-wrap: break-word"
-                      >{{ movie.poster }}</a
-                    >
+                    <img src="{{ movie.poster }}" style="height: 200px;" />
                   </div>
                 </td>
               </tr>
@@ -44,9 +42,7 @@
           <div class="pagination">
             <span class="step-links">
               {% if movies.has_previous %}
-              <a href="?page={{ movies.previous_page_number }}"
-                >&laquo; previous</a
-              >
+              <a href="?page={{ movies.previous_page_number }}{% if request.GET.search %}&search={{ request.GET.search }}{% endif %}">&laquo; previous</a>
               {% endif %}
 
               <span class="current-page">
@@ -54,7 +50,7 @@
               </span>
 
               {% if movies.has_next %}
-              <a href="?page={{ movies.next_page_number }}">next &raquo;</a>
+              <a href="?page={{ movies.next_page_number }}{% if request.GET.search %}&search={{ request.GET.search }}{% endif %}">next &raquo;</a>
               {% endif %}
             </span>
           </div>
