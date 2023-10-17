@@ -205,38 +205,6 @@
         options: {
             responsive: true
         }
-    });
-
-    $(document).ready(function() {
-        $('#sort-icon').click(function() {
-            var order = $(this).data('order');
-    
-            // Đảm bảo rằng biểu tượng thay đổi tùy theo thứ tự sắp xếp
-            if (order === 'asc') {
-                $(this).removeClass('fa-arrow-up').addClass('fa-arrow-down');
-                order = 'desc';
-            } else {
-                $(this).removeClass('fa-arrow-down').addClass('fa-arrow-up');
-                order = 'asc';
-            }
-    
-            // Gửi yêu cầu AJAX để lấy danh sách phim đã sắp xếp
-            $.get('/movie_list/', {order: order}, function(data) {
-                $('#movie-list-container').html(data.movies);
-            });
-        });
-    
-        // Bắt sự kiện click trên nút mũi tên xuống
-        $('#sort-icon-desc').click(function() {
-            var order = 'desc';
-    
-            // Gửi yêu cầu AJAX để lấy danh sách phim đã sắp xếp
-            $.get('/movie_list/', {order: order}, function(data) {
-                $('#movie-list-container').html(data.movies);
-            });
-        });
-    });
-    
+    });    
     
 })(jQuery);
-
