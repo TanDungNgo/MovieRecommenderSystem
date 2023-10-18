@@ -7,6 +7,12 @@
   <div class="row g-4">
     <div class="col-12">
       <div class="bg-secondary rounded h-100 p-4">
+        <div class="parent-node">
+          <a href="#" class="child-node">Copy</a>
+          <a href="#" class="child-node">CSV</a>
+          <a href="{% url 'export_movies' %}" class="child-node">Excel</a>
+          <a href="#" class="child-node">Print</a>
+        </div>
         <div class="table-responsive">
           <table id="example" class="table">
             <thead>
@@ -43,23 +49,5 @@
     </div>
   </div>
 </div>
-<script>
-    $(document).ready(function() {
-    $('#example').DataTable(
-      {     
-      "aLengthMenu": [[5, 10, 25, -1], [5, 10, 25, "All"]],
-      "iDisplayLength": 5
-      } 
-    );
-} );
-
-function checkAll(bx) {
-  var cbs = document.getElementsByTagName('input');
-  for(var i=0; i < cbs.length; i++) {
-    if(cbs[i].type == 'checkbox') {
-      cbs[i].checked = bx.checked;
-    }
-  }
-}
-</script>
+<script src="{% static 'js/dataTable.js' %}"></script>
 {% endblock %}
