@@ -71,3 +71,7 @@ def export_movies(request):
     fields = ["title", "overview", "poster", "movie_duration", "release_date", "status"]
     filename = "movie_data"
     return export_to_excel(request, Movie, fields, filename)
+
+def movie_detail_admin(request, movie_id):
+    current_movie = Movie.objects.get(pk=movie_id)
+    return render(request, 'movie_detail_admin.html', {'movie': current_movie})

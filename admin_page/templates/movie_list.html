@@ -29,12 +29,24 @@
             <tbody>
                 {% for movie in movies %}
                   <tr>
-                    <td scope="col">{{ movie.id }}</td>
-                    <td scope="col" style="max-width: 150px">{{ movie.title }}</td>
-                    <td scope="col" style="max-width: 280px">{{ movie.overview|truncatechars:100 }}</td>
-                    <td scope="col">{{ movie.movie_duration }}</td>
-                    <td scope="col">{{ movie.release_date }}</td>
-                    <td scope="col">{{ movie.status }}</td>
+                    <td scope="col">
+                      <a href="{% url 'movie_detail_admin' movie.id %}" style="color: #6C7293;">{{ movie.id }}</a>
+                    </td>
+                    <td scope="col" style="max-width: 150px">
+                      <a href="{% url 'movie_detail_admin' movie.id %}" style="color: #6C7293;">{{ movie.title }}</a>
+                    </td>
+                    <td scope="col" style="max-width: 280px">
+                      <a href="{% url 'movie_detail_admin' movie.id %}" style="color: #6C7293;">{{ movie.overview|truncatechars:100 }}</a>
+                    </td>
+                    <td scope="col">
+                      <a href="{% url 'movie_detail_admin' movie.id %}" style="color: #6C7293;">{{ movie.movie_duration }}</a>
+                    </td>
+                    <td scope="col">
+                      <a href="{% url 'movie_detail_admin' movie.id %}" style="color: #6C7293;">{{ movie.release_date }}</a>
+                    </td>
+                    <td scope="col">
+                      <a href="{% url 'movie_detail_admin' movie.id %}" style="color: #6C7293;">{{ movie.status }}</a>
+                    </td>
                     <td scope="col">
                       <div style="width: 150px">
                         <img src="{{ movie.poster }}" style="height: 100px;" />
