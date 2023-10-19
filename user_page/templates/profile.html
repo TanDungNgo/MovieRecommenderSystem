@@ -6,7 +6,7 @@
 
 <body >
     
-    <div class="container" style="color: #6c757d; max-width: 1200px;" >
+    <div class="container" style="color: #6c757d; max-width: 1320px;" >
         <div class="row">
             <div class="col-12">
                 <!-- Page title -->
@@ -15,7 +15,7 @@
                         class="col_red">Profile</span></h4> <hr style="color: gray">
                 </div>
                 <!-- Form START -->
-                <form class="file-upload" style="font-weight: bold;">
+                <form method="post" enctype="multipart/form-data" class="file-upload" style="font-weight: bold;">
                     <div class="row mb-5 gx-5" >
                         <!-- Contact detail -->
                         <div class="col-xxl-8 mb-5 mb-xxl-0"  style="background-color: #191a1d; border-radius: 0.25rem!important;">
@@ -25,40 +25,44 @@
                                     <!-- User name -->
                                     <div class="col-md-6">
                                         <label class="form-label">User Name </label>
-                                        <input type="text" class="form-control" placeholder="" aria-label="User name"
-                                            value="{{ request.session.user_username}}" style="background-color: #010102; border-color: black;">
+                                        <input type="text" class="form-control" id="username-input" placeholder="" aria-label="User name"
+                                            value="{{ request.session.user_username }} " style="background-color: #010102; border-color: black;">
                                     </div>
                                     <!-- Email -->
                                     <div class="col-md-6">
                                         <label for="inputEmail4" class="form-label">Email</label>
-                                        <input type="email" class="form-control" id="inputEmail4"
-                                            value="{{ request.session.user_email}}" style="background-color: #010102; border-color: black;">
+                                        <input type="email" class="form-control" id="email-input"
+                                            value="{{ request.session.user_email }}" style="background-color: #010102; border-color: black;">
                                     </div>
                                     <!-- First Name -->
                                     <div class="col-md-6">
-                                        <label class="form-label">First Name </label>
-                                        <input type="text" class="form-control" placeholder="" aria-label="First name"
-                                            value=""  style="background-color: #010102; border-color: black;">
+                                        <label class="form-label">First Name</label>
+                                        <input  id="firstname-input" type="text" class="form-control" placeholder="" aria-label="First name"
+                                            value="{{ request.session.user_firstname }}" style="background-color: #010102; border-color: black;">
                                     </div>
-                                    <!-- Last name -->
+
+                                    <!-- Last Name -->
                                     <div class="col-md-6">
-                                        <label class="form-label">Last Name </label>
-                                        <input type="text" class="form-control" placeholder="" aria-label="Last name"
-                                            value="" style="background-color: #010102; border-color: black;">
+                                        <label class="form-label">Last Name</label>
+                                        <input  id="lastname-input" type="text" class="form-control" placeholder="" aria-label="Last name"
+                                            value="{{ request.session.user_lastname }}" style="background-color: #010102; border-color: black;">
                                     </div>
+
                                     <!-- Phone number -->
                                     <div class="col-md-6">
                                         <label class="form-label">Phone number</label>
-                                        <input type="text" class="form-control" placeholder="" aria-label="Phone number"
-                                            value="" style="background-color: #010102; border-color: black;">
+                                        <input id="phonenumber-input" type="text" class="form-control" placeholder="" aria-label="Phone number"
+                                            value="{{ request.session.user_phonenumber }}" style="background-color: #010102; border-color: black;">
                                     </div>
-                                    
+
                                     <!-- Country -->
                                     <div class="col-md-6">
                                         <label class="form-label">Country</label>
-                                        <input type="text" class="form-control" placeholder="" aria-label="Country"
-                                            value="" style="background-color: #010102; border-color: black;">
+                                        <input id="country-input" type="text" class="form-control" placeholder="" aria-label="Country"
+                                            value="{{ request.session.user_country }}" style="background-color: #010102; border-color: black;">
                                     </div>
+
+
                                 </div> <!-- Row END -->
                             </div>
                         </div>
@@ -71,10 +75,11 @@
                                         <!-- Image upload -->
                                         <!-- Hiển thị hình ảnh avatar -->
                                         <img id="avatar-image" src="{{ request.session.user_avatar }}" class="img-fluid"
-                                            alt="Avatar" style="width: 280px; height: 280px; object-fit: cover; ">
+                                             alt="Avatar" style="width: 300px; height: 300px; object-fit: cover;">
+
                                         <!-- Button -->
-                                        <input type="file" id="file-input" style="display: none;">
-                                        <label for="file-input" class="btn btn-success-soft btn-block"
+                                        <input type="file" id="avatar-input" style="display: none;">
+                                        <label for="avatar-input" class="btn btn-success-soft btn-block"
                                             style="color: #28a745; background-color: rgba(40, 167, 69, 0.1); margin-top: 20px;">Upload</label>
 
                                         <button type="button" id="remove-button" class="btn btn-danger-soft"
@@ -150,9 +155,9 @@
                         </div>
                     </div> <!-- Row END -->
                     <!-- button -->
-                    <div class="gap-3 d-md-flex justify-content-md-end text-center" style="margin-bottom: 20px;">
+                    <div class="gap-3 d-md-flex justify-content-md-end text-center">
                         <button type="button" class="btn btn-danger btn-lg" style="background-color: #de1002; border-color: black;">Cancel profile</button>
-                        <button type="button" class="btn btn-primary btn-lg">Update profile</button>
+                        <button id = "update-profile-button" type="button" class="btn btn-primary btn-lg">Update profile</button>
                     </div>
                 </form> <!-- Form END -->
             </div>
@@ -165,7 +170,7 @@
         var currentImageSrc = originalImageSrc; // Lưu URL ảnh hiện tại
 
         $(document).ready(function () {
-            $("#file-input").change(function () {
+            $("#avatar-input").change(function () {
                 var input = this;
                 if (input.files && input.files[0]) {
                     var reader = new FileReader();
@@ -186,6 +191,53 @@
             });
         });
 
+        $(document).ready(function() {
+    // Gán sự kiện cho nút "Update profile"
+    $('#update-profile-button').click(function() {
+        // Thu thập dữ liệu từ các trường form
+        var firstname = $('#firstname-input').val();
+        var lastname = $('#lastname-input').val();
+        var username = $('#username-input').val();
+        var email = $('#email-input').val();
+        var country = $('#country-input').val();
+        var phonenumber = $('#phonenumber-input').val();
+        var avatar = $('#avatar-input').val();
+        
+
+        // Gửi dữ liệu lên máy chủ thông qua AJAX
+        $.ajax({
+            url: '/profile/',  // Đường dẫn đến trang "http://127.0.0.1:8000/profile/"
+            type: 'POST',
+            data: {
+                firstname: firstname,
+                lastname: lastname,
+                username: username,
+                email: email,
+                country: country,
+                phonenumber: phonenumber,
+                avatar: avatar,
+                // Các trường dữ liệu khác
+            },
+            success: function(data) {
+                // Xử lý kết quả thành công từ máy chủ
+                // Cập nhật dữ liệu trên trang web
+                $('#firstname-input').val(data.firstname);
+                $('#lastname-input').val(data.lastname);
+                $('#username-input').val(data.username);
+                $('#email-input').val(data.email);
+                $('#country-input').val(data.country);
+                $('#phonenumber-input').val(data.phonenumber);
+                $('#avatar-input').val(data.avatar);
+                // Cập nhật các trường dữ liệu khác
+            },
+            error: function(error) {
+                console.log('Lỗi khi cập nhật thông tin: ' + error);
+            }
+        });
+    });
+});
+
+        
     </script>
 </body>
 
