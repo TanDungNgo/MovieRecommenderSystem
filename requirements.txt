@@ -3,3 +3,4 @@ djangorestframework
 mysqlclient
 pandas==1.5.1
 Pillow
+openpyxl

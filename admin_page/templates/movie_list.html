@@ -2,61 +2,64 @@
 {% load static %}
 {% block title %}List Movies{% endblock %}
 {% block content %}
+<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 <div class="container-fluid pt-4 px-4">
   <div class="row g-4">
     <div class="col-12">
       <div class="bg-secondary rounded h-100 p-4">
-        <h6 class="mb-4">Movies in system</h6>
+        <div class="parent-node">
+          <a href="#" class="child-node">Copy</a>
+          <a href="#" class="child-node">CSV</a>
+          <a href="{% url 'export_movies' %}" class="child-node">Excel</a>
+          <a href="#" class="child-node">Print</a>
+        </div>
         <div class="table-responsive">
-          <table class="table">
+          <table id="example" class="table">
             <thead>
-              <tr>
-                <th>ID</th>
-                <th>Title</th>
-                <th>Overview</th>
-                <th>Duration</th>
-                <th>Release Date</th>
-                <th>Status</th>
-                <th>Poster</th>
-              </tr>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Overview</th>
+                    <th scope="col">Duration</th>
+                    <th scope="col">Release Date</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Poster</th>
+                </tr>
             </thead>
             <tbody>
-              {% for movie in movies %}
-              <tr>
-                <td>{{ movie.id }}</td>
-                <td style="max-width: 150px">{{ movie.title }}</td>
-                <td style="max-width: 280px">{{ movie.overview }}</td>
-                <td>{{ movie.movie_duration }}</td>
-                <td>{{ movie.release_date }}</td>
-                <td>{{ movie.status }}</td>
-                <td>
-                  <div style="width: 150px">
-                    <img src="{{ movie.poster }}" style="height: 200px;" />
-                  </div>
-                </td>
-              </tr>
-              {% endfor %}
+                {% for movie in movies %}
+                  <tr>
+                    <td scope="col">
+                      <a href="{% url 'movie_detail_admin' movie.id %}" style="color: #6C7293;">{{ movie.id }}</a>
+                    </td>
+                    <td scope="col" style="max-width: 150px">
+                      <a href="{% url 'movie_detail_admin' movie.id %}" style="color: #6C7293;">{{ movie.title }}</a>
+                    </td>
+                    <td scope="col" style="max-width: 280px">
+                      <a href="{% url 'movie_detail_admin' movie.id %}" style="color: #6C7293;">{{ movie.overview|truncatechars:100 }}</a>
+                    </td>
+                    <td scope="col">
+                      <a href="{% url 'movie_detail_admin' movie.id %}" style="color: #6C7293;">{{ movie.movie_duration }}</a>
+                    </td>
+                    <td scope="col">
+                      <a href="{% url 'movie_detail_admin' movie.id %}" style="color: #6C7293;">{{ movie.release_date }}</a>
+                    </td>
+                    <td scope="col">
+                      <a href="{% url 'movie_detail_admin' movie.id %}" style="color: #6C7293;">{{ movie.status }}</a>
+                    </td>
+                    <td scope="col">
+                      <div style="width: 150px">
+                        <img src="{{ movie.poster }}" style="height: 100px;" />
+                      </div>
+                    </td>
+                  </tr>
+                  {% endfor %}
             </tbody>
-          </table>
-
-          <div class="pagination">
-            <span class="step-links">
-              {% if movies.has_previous %}
-              <a href="?page={{ movies.previous_page_number }}{% if request.GET.search %}&search={{ request.GET.search }}{% endif %}">&laquo; previous</a>
-              {% endif %}
-
-              <span class="current-page">
-                Page {{ movies.number }} of {{ movies.paginator.num_pages }}
-              </span>
-
-              {% if movies.has_next %}
-              <a href="?page={{ movies.next_page_number }}{% if request.GET.search %}&search={{ request.GET.search }}{% endif %}">next &raquo;</a>
-              {% endif %}
-            </span>
-          </div>
+          </table>                 
         </div>
       </div>
     </div>
   </div>
 </div>
+<script src="{% static 'js/dataTable.js' %}"></script>
 {% endblock %}

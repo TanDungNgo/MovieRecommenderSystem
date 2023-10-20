@@ -4,6 +4,8 @@ from user_page.models import MyUser
 from django.contrib import messages
 from django.core.paginator import Paginator
 from django.db.models import Q
+from django.http import HttpResponse
+from openpyxl import Workbook
 
 # Views of Admin
 def general(request):
@@ -39,36 +41,37 @@ def create_movie(request):
     return render(request, 'create_movie.html') 
 
 def movie_list(request):
-    search_query = request.GET.get('search')
-    movie_list = Movie.objects.all()
-
-    if search_query:
-        movie_list = movie_list.filter(
-            Q(title__icontains=search_query) |  # Tìm theo tiêu đề
-            Q(overview__icontains=search_query) |  # Tìm theo tổng quan
-            Q(release_date__icontains=search_query)  # Tìm theo ngày phát hành
-        )
-
-    items_per_page = 10
-    paginator = Paginator(movie_list, items_per_page)
-    page = request.GET.get('page')
-    movies = paginator.get_page(page)
+    movies = Movie.objects.all()
     return render(request, 'movie_list.html', {'movies': movies})
 
 def user_list(request):
-    search_query = request.GET.get('search')
     user_list = MyUser.objects.all()
+    return render(request, 'user_list.html', {'user_list': user_list})
 
-    if search_query:
-        user_list = user_list.filter(
-            Q(username__icontains=search_query) |  # Tìm theo tên người dùng
-            Q(email__icontains=search_query) |     # Tìm theo email
-            Q(role__icontains=search_query)        # Tìm theo vai trò
-        )
+def export_to_excel(request, model, fields, filename):
+    data = model.objects.all()
+    wb = Workbook()
+    ws = wb.active
+    ws.append(fields)
+    for item in data:
+        row_data = [getattr(item, field) for field in fields]
+        ws.append(row_data)
 
-    items_per_page = 10
-    paginator = Paginator(user_list, items_per_page)
-    page = request.GET.get('page')
-    users = paginator.get_page(page)
-    return render(request, 'user_list.html', {'user_list': users})
+    response = HttpResponse(content_type='application/ms-excel')
+    response['Content-Disposition'] = f'attachment; filename="{filename}.xlsx"'
+    wb.save(response)
+    return response
 
+def export_users(request):
+    fields = ["username", "email", "password", "role"]
+    filename = "user_data"
+    return export_to_excel(request, MyUser, fields, filename)
+
+def export_movies(request):
+    fields = ["title", "overview", "poster", "movie_duration", "release_date", "status"]
+    filename = "movie_data"
+    return export_to_excel(request, Movie, fields, filename)
+
+def movie_detail_admin(request, movie_id):
+    current_movie = Movie.objects.get(pk=movie_id)
+    return render(request, 'movie_detail_admin.html', {'movie': current_movie})
