@@ -19,6 +19,8 @@
                                 <th>ID</th>
                                 <th>UserName</th>
                                 <th>Email</th>
+                                <th>Phone Number</th>
+                                <th>Country</th>
                                 <th>Avatar</th>
                                 <th>Role</th>
                             </tr>
@@ -29,9 +31,11 @@
                                 <td>{{ user.id }}</td>
                                 <td style="max-width: 150px;">{{ user.username }}</td>
                                 <td style="max-width: 150px;">{{ user.email }}</td>
+                                <td style="max-width: 150px;">{{ user.phonenumber }}</td>
+                                <td style="max-width: 150px;">{{ user.country }}</td>
                                 <td>
                                     <div style="width: 150px;">
-                                        <img src="{{ request.session.user_avatar }}" style="height: 100px;" />
+                                        <img src="{{ user.avatar }}" style="height: 100px;" />
                                     </div>
                                 </td>
                                 <td>{{ user.role }}</td>
