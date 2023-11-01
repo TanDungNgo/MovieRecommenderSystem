@@ -1,10 +1,9 @@
+from datetime import datetime
 from django.shortcuts import render, redirect
 from movie.models import Movie
 from user_page.models import MyUser
 from django.contrib import messages
-from django.core.paginator import Paginator
-from django.db.models import Q
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from openpyxl import Workbook
 
 # Views of Admin
@@ -37,7 +36,7 @@ def create_movie(request):
         movie.save()
 
         messages.success(request, 'Phim đã được tạo thành công!')
-        return redirect('/admin/list/') 
+        return redirect('/admin/movie_list/') 
     return render(request, 'create_movie.html') 
 
 def movie_list(request):
@@ -47,6 +46,23 @@ def movie_list(request):
 def user_list(request):
     user_list = MyUser.objects.all()
     return render(request, 'user_list.html', {'user_list': user_list})
+    
+def movie_edit(request, movie_id):
+    current_movie = Movie.objects.get(pk=movie_id)
+
+    date_object = current_movie.release_date
+    date_str = date_object.strftime("%b. %d, %Y")
+    date_object = datetime.strptime(date_str, "%b. %d, %Y").strftime("%Y-%m-%d")
+
+    return render(request, 'movie_edit.html',{'movie': current_movie, 'date_object': date_object})
+
+def delete_user(request, user_id):
+    row = MyUser.objects.get(pk=user_id)
+    row.delete()
+
+def delete_movie(request, movie_id):
+    row = Movie.objects.get(pk=movie_id)
+    row.delete()
 
 def export_to_excel(request, model, fields, filename):
     data = model.objects.all()

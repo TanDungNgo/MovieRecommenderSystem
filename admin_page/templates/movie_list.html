@@ -24,6 +24,7 @@
                     <th scope="col">Release Date</th>
                     <th scope="col">Status</th>
                     <th scope="col">Poster</th>
+                    <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -51,6 +52,14 @@
                       <div style="width: 150px">
                         <img src="{{ movie.poster }}" style="height: 100px;" />
                       </div>
+                    </td>
+                    <td>
+                      <a href="{% url 'movie_edit' movie.id %}">
+                          <i class="fa fa-edit" style="margin-left: 10px; font-size: 20px; cursor: pointer; color: green"></i>
+                      </a>
+                      <a href="{% url 'delete_movie' movie.id %}">
+                        <i class="fa fa-trash-alt" style="margin-left: 10px; font-size: 20px; cursor: pointer;"></i>
+                      </a>
                     </td>
                   </tr>
                   {% endfor %}
