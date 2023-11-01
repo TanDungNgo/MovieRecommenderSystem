@@ -3,6 +3,7 @@ import pickle
 import os
 from .models import Movie
 import difflib
+import requests
 
 import random
 def load_model():
@@ -91,13 +92,23 @@ def movie_detail(request, movie_id):
     first_section = related_movies[:num_movies_per_section]
     second_section = related_movies[num_movies_per_section:]
 
+    # Lấy danh sách diễn viên
+    url = f'https://api.themoviedb.org/3/movie/{movie_id}/credits?api_key=8265bd1679663a7ea12ac168da84d2e8&language=en-US'
+
+    response = requests.get(url) # Gửi yêu cầu GET đến API
+    response.raise_for_status()  # Kiểm tra lỗi trong yêu cầu
+    data = response.json() # Chuyển đổi dữ liệu JSON trả về thành một đối tượng Python
+    cast_list = data.get('cast', [])[:8] # Lấy danh sách diễn viên từ dữ liệu JSON
+
     context = {
         'movie': current_movie,
         'first_section': first_section,
         'second_section': second_section,
+        'casts': cast_list,
     }
 
     return render(request, 'movie_detail.html', context)
+
 
 
 
