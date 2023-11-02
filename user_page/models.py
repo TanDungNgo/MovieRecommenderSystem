@@ -8,7 +8,7 @@ class MyUser(models.Model):
     phonenumber = models.CharField(max_length=15, default="Unknown")
     country = models.CharField(max_length=100, default="Unknown")
     password = models.CharField(max_length=128)
-    avatar = models.ImageField(upload_to='img/')
+    avatar = models.TextField()
     role = models.CharField(max_length=50, default='user')
     
     def __str__(self):
