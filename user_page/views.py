@@ -29,7 +29,7 @@ def signin(request):
                     
                     # Kiểm tra xem user có avatar không
                     if user.avatar:
-                        request.session['user_avatar'] = user.avatar.url
+                        request.session['user_avatar'] = user.avatar
                     else:
                         # Đặt URL của ảnh mặc định nếu không có avatar
                        default_avatar_path = '/img/avatar.jpg'
