@@ -1,1421 +1,1037 @@
+{% extends "layout/base-layout.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Planet</title>
-    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
-    <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet">
-    <link href="{% static 'css/global.css' %}" rel="stylesheet">
-	<link href="{% static 'css/index.css' %}" rel="stylesheet" type="text/css">
-	<link href="https://fonts.googleapis.com/css2?family=Rajdhani&display=swap" rel="stylesheet">
-	<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
 
-</head>
-<body>
-
-<section id="top">
-<div class="container">
- <div class="row top_1">
-  <div class="col-md-3">
-   <div class="top_1l pt-1">
-    <h3 class="mb-0"><a class="text-white" href="index.html"><i class="fa fa-video-camera col_red me-1"></i> Planet</a></h3>
-   </div>
-  </div>
-  <div class="col-md-5">
-   <div class="top_1m">
-    <div class="input-group">
-				<input type="text" class="form-control bg-black" placeholder="Search Site...">
-				<span class="input-group-btn">
-					<button class="btn btn text-white bg_red rounded-0 border-0" type="button">
-						 Search</button>
-				</span>
-		</div>
-   </div>
-  </div>
-  <div class="col-md-4">
-   <div class="top_1r text-end">
-     <ul class="social-network social-circle mb-0">
-			<li><a href="#" class="icoRss" title="Rss"><i class="fa fa-instagram"></i></a></li>
-			<li><a href="#" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
-			<li><a href="#" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
-			<li><a href="#" class="icoGoogle" title="Google +"><i class="fa fa-youtube"></i></a></li>
-			<li><a href="#" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
-		</ul>
-   </div>
-  </div>
- </div>
-</div>
-</section>
-
-<section id="header">
-<nav class="navbar navbar-expand-md navbar-light" id="navbar_sticky">
-  <div class="container">
-    <a class="navbar-brand text-white fw-bold" href="index.html"><i class="fa fa-video-camera col_red me-1"></i> Planet</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mb-0">
-        <li class="nav-item">
-			<a class="nav-link" aria-current="page" href="{% url 'index' %}">Home</a>
-        </li>
-		<li class="nav-item">
-          <a class="nav-link" href="{% url 'about'%}">About Us</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Blog
-          </a>
-          <ul class="dropdown-menu drop_1" aria-labelledby="navbarDropdown">
-			<li><a class="dropdown-item" href="{% url 'blog' %}">Blog</a></li>
-			<li><a class="dropdown-item" href="{% url 'blog_detail' %}">Blog Detail</a></li>
-          </ul>
-        </li>
-		<li class="nav-item">
-          <a class="nav-link" href="{% url 'services' %}">Services</a>
-        </li>
-		<li class="nav-item">
-          <a class="nav-link" href="{% url 'contact' %}">Contact Us</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
-</section>
-
+{% block title %}Home{% endblock %}
+{% block content %}
 <section id="center" class="center_home">
- <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-indicators">
-    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2" class="" aria-current="true"></button>
-    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-  </div>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-		<img src="{% static 'img/01.jpg' %}" class="d-block w-100" alt="...">
-      <div class="carousel-caption d-md-block">
-       <h1 class="font_60"> Spider Man</h1>
-	   <h6 class="mt-3">
-	    <span class="col_red me-3">
-		 <i class="fa fa-star"></i>
-		 <i class="fa fa-star"></i>
-		 <i class="fa fa-star"></i>
-		 <i class="fa fa-star"></i>
-		 <i class="fa fa-star-half-o"></i>
-		</span>
-		 4.5 (Imdb)      Year : 1977
-		 <a class="bg_red p-2 pe-4 ps-4 ms-3 text-white d-inline-block" href="#">Action</a>
-	   </h6>
-	   <p class="mt-3">Spider-Man is a superhero film that revolves around the journey of Peter Parker, a young man who becomes a superhero after gaining the ability to climb and shoot spider webs after being stung by a mutated spider.</p>
-	   <p class="mb-2"><span class="col_red me-1 fw-bold">Starring:</span> Tobey Maguire Willem Dafoe Kirsten Dunst James Franco Cliff Robertson Rosemary Harris J. K. Simmons</p>
-	   <p class="mb-2"><span class="col_red me-1 fw-bold">Genres:</span> Superhero Movie</p>
-	   <p><span class="col_red me-1 fw-bold">Runtime:</span> 1h 32m</p>	
-	   <h6 class="mt-4"><a class="button" href="#"><i class="fa fa-play-circle align-middle me-1"></i> Watch Trailer</a></h6>
-      </div>
-    </div>
-    <div class="carousel-item">
-		<img src="{% static 'img/02.jpg' %}" class="d-block w-100" alt="...">
-      <div class="carousel-caption d-md-block">
-       <h1 class="font_60"> Avatar </h1>
-	   <h6 class="mt-3">
-	    <span class="col_red me-3">
-		 <i class="fa fa-star"></i>
-		 <i class="fa fa-star"></i>
-		 <i class="fa fa-star"></i>
-		 <i class="fa fa-star"></i>
-		 <i class="fa fa-star-half-o"></i>
-		</span>
-		 4.5 (Imdb)      Year : 2009
-		 <a class="bg_red p-2 pe-4 ps-4 ms-3 text-white d-inline-block" href="#">Action</a>
-	   </h6>
-	   <p class="mt-3">"Avatar" is a unique science fiction film directed by James Cameron. The film takes place in the future, on a distant planet called Pandora. The story revolves around the character Jake Sully (played by Sam Worthington), a disabled person participating in a scientific exchange program with aliens.</p>
-	   <p class="mb-2"><span class="col_red me-1 fw-bold">Starring:</span> 	Sam Worthington Zoe Saldana Stephen Lang Michelle Rodriguez Sigourney Weaver</p>
-	   <p class="mb-2"><span class="col_red me-1 fw-bold">Genres:</span> Science Fiction</p>
-	   <p><span class="col_red me-1 fw-bold">Runtime:</span> 1h 32m</p>	
-	   <h6 class="mt-4"><a class="button" href="#"><i class="fa fa-play-circle align-middle me-1"></i> Watch Trailer</a></h6>
-      </div>
-    </div>
-    <div class="carousel-item">
-		<img src="{% static 'img/03.jpg' %}" class="d-block w-100" alt="...">
-      <div class="carousel-caption d-md-block">
-       <h1 class="font_60"> Spartacus</h1>
-	   <h6 class="mt-3">
-	    <span class="col_red me-3">
-		 <i class="fa fa-star"></i>
-		 <i class="fa fa-star"></i>
-		 <i class="fa fa-star"></i>
-		 <i class="fa fa-star"></i>
-		 <i class="fa fa-star-half-o"></i>
-		</span>
-		 4.5 (Imdb)      Year : 2010
-		 <a class="bg_red p-2 pe-4 ps-4 ms-3 text-white d-inline-block" href="#">Action</a>
-	   </h6>
-	   <p class="mt-3">"Spartacus" is a 1960 film, directed by Stanley Kubrick, and written by Dalton Trumbo. This film is based on the historical story of Spartacus, a Roman slave who led a famous slave uprising, known as the Spartacus Rebellion.</p>
-	   <p class="mb-2"><span class="col_red me-1 fw-bold">Starring:</span> Eget Nulla Semper Porta Dapibus Diam Ipsum</p>
-	   <p class="mb-2"><span class="col_red me-1 fw-bold">Genres:</span> Action and history</p>
-	   <p><span class="col_red me-1 fw-bold">Runtime:</span> 1h 32m</p>	
-	   <h6 class="mt-4 mb-0"><a class="button" href="#"><i class="fa fa-play-circle align-middle me-1"></i> Watch Trailer</a></h6>
-      </div>
-    </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
+	<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+		<div class="carousel-indicators">
+			<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+				aria-label="Slide 1"></button>
+			<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"
+				class="" aria-current="true"></button>
+			<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+				aria-label="Slide 3"></button>
+		</div>
+		<div class="carousel-inner">
+			<div class="carousel-item active">
+				<img src="{% static 'img/01.jpg' %}" class="d-block w-100" alt="...">
+				<div class="carousel-caption d-md-block">
+					<h1 class="font_60"> Spider Man</h1>
+					<h6 class="mt-3">
+						<span class="col_red me-3">
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star-half-o"></i>
+						</span>
+						4.5 (Imdb) Year : 1977
+						<a class="bg_red p-2 pe-4 ps-4 ms-3 text-white d-inline-block" href="#">Action</a>
+					</h6>
+					<p class="mt-3">Spider-Man is a superhero film that revolves around the journey of Peter Parker, a
+						young man who becomes a superhero after gaining the ability to climb and shoot spider webs after
+						being stung by a mutated spider.</p>
+					<p class="mb-2"><span class="col_red me-1 fw-bold">Starring:</span> Tobey Maguire Willem Dafoe
+						Kirsten Dunst James Franco Cliff Robertson Rosemary Harris J. K. Simmons</p>
+					<p class="mb-2"><span class="col_red me-1 fw-bold">Genres:</span> Superhero Movie</p>
+					<p><span class="col_red me-1 fw-bold">Runtime:</span> 1h 32m</p>
+					<h6 class="mt-4"><a class="button" href="#"><i class="fa fa-play-circle align-middle me-1"></i>
+							Watch Trailer</a></h6>
+				</div>
+			</div>
+			<div class="carousel-item">
+				<img src="{% static 'img/02.jpg' %}" class="d-block w-100" alt="...">
+				<div class="carousel-caption d-md-block">
+					<h1 class="font_60"> Avatar </h1>
+					<h6 class="mt-3">
+						<span class="col_red me-3">
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star-half-o"></i>
+						</span>
+						4.5 (Imdb) Year : 2009
+						<a class="bg_red p-2 pe-4 ps-4 ms-3 text-white d-inline-block" href="#">Action</a>
+					</h6>
+					<p class="mt-3">"Avatar" is a unique science fiction film directed by James Cameron. The film takes
+						place in the future, on a distant planet called Pandora. The story revolves around the character
+						Jake Sully (played by Sam Worthington), a disabled person participating in a scientific exchange
+						program with aliens.</p>
+					<p class="mb-2"><span class="col_red me-1 fw-bold">Starring:</span> Sam Worthington Zoe Saldana
+						Stephen Lang Michelle Rodriguez Sigourney Weaver</p>
+					<p class="mb-2"><span class="col_red me-1 fw-bold">Genres:</span> Science Fiction</p>
+					<p><span class="col_red me-1 fw-bold">Runtime:</span> 1h 32m</p>
+					<h6 class="mt-4"><a class="button" href="#"><i class="fa fa-play-circle align-middle me-1"></i>
+							Watch Trailer</a></h6>
+				</div>
+			</div>
+			<div class="carousel-item">
+				<img src="{% static 'img/03.jpg' %}" class="d-block w-100" alt="...">
+				<div class="carousel-caption d-md-block">
+					<h1 class="font_60"> Spartacus</h1>
+					<h6 class="mt-3">
+						<span class="col_red me-3">
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star-half-o"></i>
+						</span>
+						4.5 (Imdb) Year : 2010
+						<a class="bg_red p-2 pe-4 ps-4 ms-3 text-white d-inline-block" href="#">Action</a>
+					</h6>
+					<p class="mt-3">"Spartacus" is a 1960 film, directed by Stanley Kubrick, and written by Dalton
+						Trumbo. This film is based on the historical story of Spartacus, a Roman slave who led a famous
+						slave uprising, known as the Spartacus Rebellion.</p>
+					<p class="mb-2"><span class="col_red me-1 fw-bold">Starring:</span> Eget Nulla Semper Porta Dapibus
+						Diam Ipsum</p>
+					<p class="mb-2"><span class="col_red me-1 fw-bold">Genres:</span> Action and history</p>
+					<p><span class="col_red me-1 fw-bold">Runtime:</span> 1h 32m</p>
+					<h6 class="mt-4 mb-0"><a class="button" href="#"><i class="fa fa-play-circle align-middle me-1"></i>
+							Watch Trailer</a></h6>
+				</div>
+			</div>
+		</div>
+		<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+			data-bs-slide="prev">
+			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+			<span class="visually-hidden">Previous</span>
+		</button>
+		<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+			data-bs-slide="next">
+			<span class="carousel-control-next-icon" aria-hidden="true"></span>
+			<span class="visually-hidden">Next</span>
+		</button>
+	</div>
 </section>
 
 <section id="trend" class="pt-4 pb-5">
-<div class="container">
- <div class="row trend_1">
-  <div class="col-md-6 col-6">
-   <div class="trend_1l">
-    <h4 class="mb-0"><i class="fa fa-youtube-play align-middle col_red me-1"></i> Latest <span class="col_red">Movies</span></h4>
-   </div>
-  </div>
-  <div class="col-md-6 col-6">
-   <div class="trend_1r text-end">
-     <h6 class="mb-0"><a class="button" href="#"> View All</a></h6>
-   </div>
-  </div>
- </div>
- <div class="row trend_2 mt-4">
-   <div id="carouselExampleCaptions1" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-indicators">
-    <button type="button" data-bs-target="#carouselExampleCaptions1" data-bs-slide-to="0" class="active" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#carouselExampleCaptions1" data-bs-slide-to="1" aria-label="Slide 2" class="" aria-current="true"></button>
-  </div>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <div class="trend_2i row">
-	    <div class="col-md-3 col-6">
-		  <div class="trend_2im clearfix position-relative">
-		   <div class="trend_2im1 clearfix">
-		     <div class="grid">
-		  <figure class="effect-jazz mb-0">
-			<img src="{% static 'img/04.jpg' %}" class="d-block w-100" alt="...">
-		  </figure>
-	  </div>
-		   </div>
-		   <div class="trend_2im2 clearfix text-center position-absolute w-100 top-0">
-		     <span class="fs-1"><a class="col_red" href="#"><i class="fa fa-youtube-play"></i></a></span>
-		   </div>
-		  </div>
-		  <div class="trend_2ilast bg_grey p-3 clearfix">
-		    <h5><a class="col_red" href="#">Monster Hunter</a></h5>
-			<p class="mb-2">Monster Hunter is a 2020 monster film written, directed, and produced </p>
-			<span class="col_red">
-		 <i class="fa fa-star"></i>
-		 <i class="fa fa-star"></i>
-		 <i class="fa fa-star"></i>
-		 <i class="fa fa-star"></i>
-		 <i class="fa fa-star"></i>
-		</span>
-		<p class="mb-0">1 Views</p>
-		  </div>  
+	<div class="container">
+		<div class="row trend_1">
+			<div class="col-md-6 col-6">
+				<div class="trend_1l">
+					<h4 class="mb-0"><i class="fa fa-youtube-play align-middle col_red me-1"></i> Latest <span
+							class="col_red">Movies</span></h4>
+				</div>
+			</div>
+			<div class="col-md-6 col-6">
+				<div class="trend_1r text-end">
+					<h6 class="mb-0"><a class="button" href="#"> View All</a></h6>
+				</div>
+			</div>
 		</div>
-		<div class="col-md-3 col-6">
-		  <div class="trend_2im clearfix position-relative">
-		   <div class="trend_2im1 clearfix">
-		     <div class="grid">
-		  <figure class="effect-jazz mb-0">
-			<img src="{% static 'img/05.jpg' %}" class="d-block w-100" alt="...">
-		  </figure>
-	  </div>
-		   </div>
-		   <div class="trend_2im2 clearfix text-center position-absolute w-100 top-0">
-		     <span class="fs-1"><a class="col_red" href="#"><i class="fa fa-youtube-play"></i></a></span>
-		   </div>
-		  </div>
-		  <div class="trend_2ilast bg_grey p-3 clearfix">
-		    <h5><a class="col_red" href="#">Ashura Gladiator</a></h5>
-			<p class="mb-2">The Life and Death Tournament is extremely intense: corporate bosses</p>
-			<span class="col_red">
-		 <i class="fa fa-star"></i>
-		 <i class="fa fa-star"></i>
-		 <i class="fa fa-star"></i>
-		 <i class="fa fa-star"></i>
-		 <i class="fa fa-star"></i>
-		</span>
-		<p class="mb-0">1 Views</p>
-		  </div>  
+		<div class="row trend_2 mt-4">
+			<div id="carouselExampleCaptions1" class="carousel slide" data-bs-ride="carousel">
+				<div class="carousel-indicators">
+					<button type="button" data-bs-target="#carouselExampleCaptions1" data-bs-slide-to="0" class="active"
+						aria-label="Slide 1"></button>
+					<button type="button" data-bs-target="#carouselExampleCaptions1" data-bs-slide-to="1"
+						aria-label="Slide 2" class="" aria-current="true"></button>
+				</div>
+				<div class="carousel-inner">
+					<div class="carousel-item active">
+						<div class="trend_2i row">
+							{% for movie in latest_movies_part1 %}
+							<div class="col-md-3 col-6">
+								<div class="trend_2im clearfix position-relative">
+									<div class="trend_2im1 clearfix">
+										<div class="grid">
+											<figure class="effect-jazz mb-0">
+												<img src="{{ movie.poster }}" alt="{{ movie.title }} Poster" width="416"
+													height="234">
+											</figure>
+										</div>
+									</div>
+									<div class="trend_2im2 clearfix text-center position-absolute w-100 top-0">
+										<span class="fs-1"><a class="col_red" href="#"><i
+													class="fa fa-youtube-play"></i></a></span>
+									</div>
+								</div>
+								<div class="trend_2ilast bg_grey p-3 clearfix">
+									<h5><a class="col_red" href="{% url 'movie_detail' movie.id %}">{{ movie.title }}</a></h5>
+									<p class="mb-2">{{ movie.overview|slice:":100" }}</p>
+									<span class="col_red">
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+									</span>
+								</div>
+							</div>
+							{% endfor %}
+						</div>
+					</div>
+					<div class="carousel-item">
+						<div class="trend_2i row">
+							{% for movie in latest_movies_part2 %}
+							<div class="col-md-3 col-6">
+								<div class="trend_2im clearfix position-relative">
+									<div class="trend_2im1 clearfix">
+										<div class="grid">
+											<figure class="effect-jazz mb-0">
+												<img src="{{ movie.poster }}" alt="{{ movie.title }} Poster" width="416"
+													height="234">
+											</figure>
+										</div>
+									</div>
+									<div class="trend_2im2 clearfix text-center position-absolute w-100 top-0">
+										<span class="fs-1"><a class="col_red" href="#"><i
+													class="fa fa-youtube-play"></i></a></span>
+									</div>
+								</div>
+								<div class="trend_2ilast bg_grey p-3 clearfix">
+									<h5><a class="col_red" href="{% url 'movie_detail' movie.id %}">{{ movie.title }}</a></h5>
+									<p class="mb-2">{{ movie.overview|slice:":100" }}</p>
+									<span class="col_red">
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+									</span>
+								</div>
+							</div>
+							{% endfor %}
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
-		<div class="col-md-3 col-6">
-		  <div class="trend_2im clearfix position-relative">
-		   <div class="trend_2im1 clearfix">
-		     <div class="grid">
-		  <figure class="effect-jazz mb-0">
-			<img src="{% static 'img/06.jpg' %}" class="d-block w-100" alt="...">
-		  </figure>
-	  </div>
-		   </div>
-		   <div class="trend_2im2 clearfix text-center position-absolute w-100 top-0">
-		     <span class="fs-1"><a class="col_red" href="#"><i class="fa fa-youtube-play"></i></a></span>
-		   </div>
-		  </div>
-		  <div class="trend_2ilast bg_grey p-3 clearfix">
-		    <h5><a class="col_red" href="#">Magic Hand</a></h5>
-			<p class="mb-2">Magic Hands is about a veterinarian with psychic powers and a detective</p>
-			<span class="col_red">
-		 <i class="fa fa-star"></i>
-		 <i class="fa fa-star"></i>
-		 <i class="fa fa-star"></i>
-		 <i class="fa fa-star"></i>
-		 <i class="fa fa-star"></i>
-		</span>
-		<p class="mb-0">1 Views</p>
-		  </div>  
-		</div>
-		<div class="col-md-3 col-6">
-		  <div class="trend_2im clearfix position-relative">
-		   <div class="trend_2im1 clearfix">
-		     <div class="grid">
-		  <figure class="effect-jazz mb-0">
-			<img src="{% static 'img/07.jpg' %}" class="d-block w-100" alt="...">
-		  </figure>
-	  </div>
-		   </div>
-		   <div class="trend_2im2 clearfix text-center position-absolute w-100 top-0">
-		     <span class="fs-1"><a class="col_red" href="#"><i class="fa fa-youtube-play"></i></a></span>
-		   </div>
-		  </div>
-		  <div class="trend_2ilast bg_grey p-3 clearfix">
-		    <h5><a class="col_red" href="#">Heart Of Darkness</h5>
-			<p class="mb-2">Heart of Darkness is a 1993 television film adaptation of Joseph Conrad's</p>
-			<span class="col_red">
-		 <i class="fa fa-star"></i>
-		 <i class="fa fa-star"></i>
-		 <i class="fa fa-star"></i>
-		 <i class="fa fa-star"></i>
-		 <i class="fa fa-star"></i>
-		</span>
-		<p class="mb-0">1 Views</p>
-		  </div>  
-		</div>
-	  </div>
-    </div>
-    <div class="carousel-item">
-      <div class="trend_2i row">
-	    <div class="col-md-3 col-6">
-		  <div class="trend_2im clearfix position-relative">
-		   <div class="trend_2im1 clearfix">
-		     <div class="grid">
-		  <figure class="effect-jazz mb-0">
-			<img src="{% static 'img/08.jpg' %}" class="d-block w-100" alt="...">
-		  </figure>
-	  </div>
-		   </div>
-		   <div class="trend_2im2 clearfix text-center position-absolute w-100 top-0">
-		     <span class="fs-1"><a class="col_red" href="#"><i class="fa fa-youtube-play"></i></a></span>
-		   </div>
-		  </div>
-		  <div class="trend_2ilast bg_grey p-3 clearfix">
-		    <h5><a class="col_red" href="#">King the Land</a></h5>
-			<p class="mb-2">King The Land in the midst of a tense inheritance battle</p>
-			<span class="col_red">
-		 <i class="fa fa-star"></i>
-		 <i class="fa fa-star"></i>
-		 <i class="fa fa-star"></i>
-		 <i class="fa fa-star"></i>
-		 <i class="fa fa-star"></i>
-		</span>
-		<p class="mb-0">1 Views</p>
-		  </div>  
-		</div>
-		<div class="col-md-3 col-6">
-		  <div class="trend_2im clearfix position-relative">
-		   <div class="trend_2im1 clearfix">
-		     <div class="grid">
-		  <figure class="effect-jazz mb-0">
-			<img src="{% static 'img/09.jpg' %}" class="d-block w-100" alt="...">
-		  </figure>
-	  </div>
-		   </div>
-		   <div class="trend_2im2 clearfix text-center position-absolute w-100 top-0">
-		     <span class="fs-1"><a class="col_red" href="#"><i class="fa fa-youtube-play"></i></a></span>
-		   </div>
-		  </div>
-		  <div class="trend_2ilast bg_grey p-3 clearfix">
-		    <h5><a class="col_red" href="#">Fubar</a></h5>
-			<p class="mb-2">FUBAR is about a CIA operative (Schwarzenegger)</p>
-			<span class="col_red">
-		 <i class="fa fa-star"></i>
-		 <i class="fa fa-star"></i>
-		 <i class="fa fa-star"></i>
-		 <i class="fa fa-star"></i>
-		 <i class="fa fa-star"></i>
-		</span>
-		<p class="mb-0">1 Views</p>
-		  </div>  
-		</div>
-		<div class="col-md-3 col-6">
-		  <div class="trend_2im clearfix position-relative">
-		   <div class="trend_2im1 clearfix">
-		     <div class="grid">
-		  <figure class="effect-jazz mb-0">
-			<img src="{% static 'img/img10.jpg' %}" class="d-block w-100" alt="...">
-		  </figure>
-	  </div>
-		   </div>
-		   <div class="trend_2im2 clearfix text-center position-absolute w-100 top-0">
-		     <span class="fs-1"><a class="col_red" href="#"><i class="fa fa-youtube-play"></i></a></span>
-		   </div>
-		  </div>
-		  <div class="trend_2ilast bg_grey p-3 clearfix">
-		    <h5><a class="col_red" href="#">Our Beloved Summer</a></h5>
-			<p class="mb-2">Our Beloved Summer belongs to the Romantic Comedy movie genre</p>
-			<span class="col_red">
-		 <i class="fa fa-star"></i>
-		 <i class="fa fa-star"></i>
-		 <i class="fa fa-star"></i>
-		 <i class="fa fa-star"></i>
-		 <i class="fa fa-star"></i>
-		</span>
-		<p class="mb-0">1 Views</p>
-		  </div>  
-		</div>
-		<div class="col-md-3 col-6">
-		  <div class="trend_2im clearfix position-relative">
-		   <div class="trend_2im1 clearfix">
-		     <div class="grid">
-		  <figure class="effect-jazz mb-0">
-			<img src="{% static 'img/img11.jpg' %}" class="d-block w-100" alt="...">
-		  </figure>
-	  </div>
-		   </div>
-		   <div class="trend_2im2 clearfix text-center position-absolute w-100 top-0">
-		     <span class="fs-1"><a class="col_red" href="#"><i class="fa fa-youtube-play"></i></a></span>
-		   </div>
-		  </div>
-		  <div class="trend_2ilast bg_grey p-3 clearfix">
-		    <h5><a class="col_red" href="#">D*P</a></h5>
-			<p class="mb-2">D. P is teaching us very valuable lessons about bullying. </p>
-			<span class="col_red">
-		 <i class="fa fa-star"></i>
-		 <i class="fa fa-star"></i>
-		 <i class="fa fa-star"></i>
-		 <i class="fa fa-star"></i>
-		 <i class="fa fa-star"></i>
-		</span>
-		<p class="mb-0">1 Views</p>
-		  </div>  
-		</div>
-	  </div>
-    </div>
-    
-  </div>
-
-</div>
- </div>
-</div>
+	</div>
 </section>
 
+
 <section id="upcome" class="pt-4 pb-5">
-<div class="container">
- <div class="row trend_1">
-  <div class="col-md-6 col-6">
-   <div class="trend_1l">
-    <h4 class="mb-0"><i class="fa fa-youtube-play align-middle col_red me-1"></i> Upcoming <span class="col_red">Movies</span></h4>
-   </div>
-  </div>
-  <div class="col-md-6 col-6">
-   <div class="trend_1r text-end">
-     <h6 class="mb-0"><a class="button" href="#"> View All</a></h6>
-   </div>
-  </div>
- </div>
- <div class="row trend_2 mt-4">
-   <div id="carouselExampleCaptions2" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-indicators">
-    <button type="button" data-bs-target="#carouselExampleCaptions2" data-bs-slide-to="0" class="active" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#carouselExampleCaptions2" data-bs-slide-to="1" aria-label="Slide 2" class="" aria-current="true"></button>
-  </div>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <div class="trend_2i row">
-	    <div class="col-md-4">
-		  <div class="trend_2im clearfix position-relative">
-		   <div class="trend_2im1 clearfix">
-		     <div class="grid">
-		  <figure class="effect-jazz mb-0">
-			<img src="{% static 'img/img12.jpg' %}" class="d-block w-100" alt="...">
-		  </figure>
-	  </div>
-		   </div>
-		   <div class="trend_2im2 clearfix text-center position-absolute w-100 top-0">
-		     <span class="fs-1"><a class="col_red" href="#"><i class="fa fa-youtube-play"></i></a></span>
-		   </div>
-		  </div>
-		  <div class="trend_2ilast bg_grey p-3 clearfix">
-		    <h5><a class="col_red" href="#">Kungfu Panda</a></h5>
-			<p class="mb-2">A father travels from Oklahoma to France to help his...</p>
-			<span class="col_red">
-		 <i class="fa fa-star"></i>
-		 <i class="fa fa-star"></i>
-		 <i class="fa fa-star"></i>
-		 <i class="fa fa-star"></i>
-		 <i class="fa fa-star"></i>
-		</span>
-		<p class="mb-0">1 Views</p>
-		  </div>  
+	<div class="container">
+		<div class="row trend_1">
+			<div class="col-md-6 col-6">
+				<div class="trend_1l">
+					<h4 class="mb-0"><i class="fa fa-youtube-play align-middle col_red me-1"></i> Upcoming <span
+							class="col_red">Movies</span></h4>
+				</div>
+			</div>
+			<div class="col-md-6 col-6">
+				<div class="trend_1r text-end">
+					<h6 class="mb-0"><a class="button" href="#"> View All</a></h6>
+				</div>
+			</div>
 		</div>
-		<div class="col-md-4">
-		  <div class="trend_2im clearfix position-relative">
-		   <div class="trend_2im1 clearfix">
-		     <div class="grid">
-		  <figure class="effect-jazz mb-0">
-			<img src="{% static 'img/img13.jpg' %}" class="d-block w-100" alt="...">
-		  </figure>
-	  </div>
-		   </div>
-		   <div class="trend_2im2 clearfix text-center position-absolute w-100 top-0">
-		     <span class="fs-1"><a class="col_red" href="#"><i class="fa fa-youtube-play"></i></a></span>
-		   </div>
-		  </div>
-		  <div class="trend_2ilast bg_grey p-3 clearfix">
-		    <h5><a class="col_red" href="#">The Glory </a></h5>
-			<p class="mb-2">A father travels from Oklahoma to France to help his...</p>
-			<span class="col_red">
-		 <i class="fa fa-star"></i>
-		 <i class="fa fa-star"></i>
-		 <i class="fa fa-star"></i>
-		 <i class="fa fa-star"></i>
-		 <i class="fa fa-star"></i>
-		</span>
-		<p class="mb-0">1 Views</p>
-		  </div>  
-		</div>
-		<div class="col-md-4">
-		  <div class="trend_2im clearfix position-relative">
-		   <div class="trend_2im1 clearfix">
-		     <div class="grid">
-		  <figure class="effect-jazz mb-0">
-			<img src="{% static 'img/img14.jpg' %}" class="d-block w-100" alt="...">
-		  </figure>
-	  </div>
-		   </div>
-		   <div class="trend_2im2 clearfix text-center position-absolute w-100 top-0">
-		     <span class="fs-1"><a class="col_red" href="#"><i class="fa fa-youtube-play"></i></a></span>
-		   </div>
-		  </div>
-		  <div class="trend_2ilast bg_grey p-3 clearfix">
-		    <h5><a class="col_red" href="#">Hometown Cha-Cha-Cha</a></h5>
-			<p class="mb-2">A father travels from Oklahoma to France to help his...</p>
-			<span class="col_red">
-		 <i class="fa fa-star"></i>
-		 <i class="fa fa-star"></i>
-		 <i class="fa fa-star"></i>
-		 <i class="fa fa-star"></i>
-		 <i class="fa fa-star"></i>
-		</span>
-		<p class="mb-0">1 Views</p>
-		  </div>  
-		</div>
-		
-	  </div>
-    </div>
-    <div class="carousel-item">
-      <div class="trend_2i row">
-	    
-		<div class="col-md-4">
-		  <div class="trend_2im clearfix position-relative">
-		   <div class="trend_2im1 clearfix">
-		     <div class="grid">
-		  <figure class="effect-jazz mb-0">
-			<img src="{% static 'img/img15.jpg' %}" class="d-block w-100" alt="...">
-		  </figure>
-	  </div>
-		   </div>
-		   <div class="trend_2im2 clearfix text-center position-absolute w-100 top-0">
-		     <span class="fs-1"><a class="col_red" href="#"><i class="fa fa-youtube-play"></i></a></span>
-		   </div>
-		  </div>
-		  <div class="trend_2ilast bg_grey p-3 clearfix">
-		    <h5><a class="col_red" href="#">The Takedown</a></h5>
-			<p class="mb-2">A father travels from Oklahoma to France to help his...</p>
-			<span class="col_red">
-		 <i class="fa fa-star"></i>
-		 <i class="fa fa-star"></i>
-		 <i class="fa fa-star"></i>
-		 <i class="fa fa-star"></i>
-		 <i class="fa fa-star"></i>
-		</span>
-		<p class="mb-0">1 Views</p>
-		  </div>  
-		</div>
-		<div class="col-md-4">
-		  <div class="trend_2im clearfix position-relative">
-		   <div class="trend_2im1 clearfix">
-		     <div class="grid">
-		  <figure class="effect-jazz mb-0">
-			<img src="{% static 'img/img16.jpg' %}" class="d-block w-100" alt="...">
-		  </figure>
-	  </div>
-		   </div>
-		   <div class="trend_2im2 clearfix text-center position-absolute w-100 top-0">
-		     <span class="fs-1"><a class="col_red" href="#"><i class="fa fa-youtube-play"></i></a></span>
-		   </div>
-		  </div>
-		  <div class="trend_2ilast bg_grey p-3 clearfix">
-		    <h5><a class="col_red" href="#">Murder Mystery</a></h5>
-			<p class="mb-2">A father travels from Oklahoma to France to help his...</p>
-			<span class="col_red">
-		 <i class="fa fa-star"></i>
-		 <i class="fa fa-star"></i>
-		 <i class="fa fa-star"></i>
-		 <i class="fa fa-star"></i>
-		 <i class="fa fa-star"></i>
-		</span>
-		<p class="mb-0">1 Views</p>
-		  </div>  
-		</div>
-		<div class="col-md-4">
-		  <div class="trend_2im clearfix position-relative">
-		   <div class="trend_2im1 clearfix">
-		     <div class="grid">
-		  <figure class="effect-jazz mb-0">
-			<img src="{% static 'img/img17.jpg' %}" class="d-block w-100" alt="...">
-		  </figure>
-	  </div>
-		   </div>
-		   <div class="trend_2im2 clearfix text-center position-absolute w-100 top-0">
-		     <span class="fs-1"><a class="col_red" href="#"><i class="fa fa-youtube-play"></i></a></span>
-		   </div>
-		  </div>
+		<div class="row trend_2 mt-4">
+			<div id="carouselExampleCaptions2" class="carousel slide" data-bs-ride="carousel">
+				<div class="carousel-indicators">
+					<button type="button" data-bs-target="#carouselExampleCaptions2" data-bs-slide-to="0" class="active"
+						aria-label="Slide 1"></button>
+					<button type="button" data-bs-target="#carouselExampleCaptions2" data-bs-slide-to="1"
+						aria-label="Slide 2" class="" aria-current="true"></button>
+				</div>
+				<div class="carousel-inner">
+					<div class="carousel-item active">
+						<div class="trend_2i row">
+							{% for movie in upcoming_movies_part1 %}
+							<div class="col-md-4">
+								<div class="trend_2im clearfix position-relative">
+									<div class="trend_2im1 clearfix">
+										<div class="grid">
+											<figure class="effect-jazz mb-0">
+												<img src="{{ movie.poster }}" class="d-block w-100"
+													alt="{{ movie.title }}" width="416" height="234"
+													style="object-fit: cover;">
 
-		  <div class="trend_2ilast bg_grey p-3 clearfix">
-		    <h5><a class="col_red" href="#">Four Assassins</a></h5>
-			<p class="mb-2">A father travels from Oklahoma to France to help his...</p>
-			<span class="col_red">
-		 <i class="fa fa-star"></i>
-		 <i class="fa fa-star"></i>
-		 <i class="fa fa-star"></i>
-		 <i class="fa fa-star"></i>
-		 <i class="fa fa-star"></i>
-		</span>
-		<p class="mb-0">1 Views</p>
-		  </div>  
-		</div>
-	  </div>
-    </div>
-    
-  </div>
+											</figure>
+										</div>
+									</div>
+									<div class="trend_2im2 clearfix text-center position-absolute w-100 top-0">
+										<span class="fs-1"><a class="col_red" href="#"><i
+													class="fa fa-youtube-play"></i></a></span>
+									</div>
+								</div>
+								<div class="trend_2ilast bg_grey p-3 clearfix">
+									<h5><a class="col_red" href="{% url 'movie_detail' movie.id %}">{{ movie.title }}</a></h5>
+									<p class="mb-2">{{ movie.overview|slice:":90" }}</p>
+									<span class="col_red">
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+									</span>
 
-</div>
- </div>
-</div>
+								</div>
+							</div>
+							{% endfor %}
+						</div>
+					</div>
+					<div class="carousel-item">
+						<div class="trend_2i row">
+
+							{% for movie in upcoming_movies_part2 %}
+							<div class="col-md-4">
+								<div class="trend_2im clearfix position-relative">
+									<div class="trend_2im1 clearfix">
+										<div class="grid">
+											<figure class="effect-jazz mb-0">
+												<img src="{{ movie.poster }}" class="d-block w-100"
+													alt="{{ movie.title }}" width="416" height="234"
+													style="object-fit: cover;">
+											</figure>
+										</div>
+									</div>
+									<div class="trend_2im2 clearfix text-center position-absolute w-100 top-0">
+										<span class="fs-1"><a class="col_red" href="#"><i
+													class="fa fa-youtube-play"></i></a></span>
+									</div>
+								</div>
+								<div class="trend_2ilast bg_grey p-3 clearfix">
+									<h5><a class="col_red" href="{% url 'movie_detail' movie.id %}">{{ movie.title }}</a></h5>
+									<p class="mb-2">{{ movie.overview|slice:":90" }}</p>
+									<span class="col_red">
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+									</span>
+								</div>
+							</div>
+							{% endfor %}
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+		</div>
+	</div>
 </section>
 
 <section id="popular" class="pt-4 pb-5 bg_grey">
-<div class="container">
- <div class="row trend_1">
-  <div class="col-md-12">
-   <div class="trend_1l">
-    <h4 class="mb-0"><i class="fa fa-youtube-play align-middle col_red me-1"></i> Trending <span class="col_red">Movies</span></h4>
-   </div>
-  </div>
- </div>
- <div class="row popular_1 mt-4">
-   <ul class="nav nav-tabs  border-0 mb-0">
-    <li class="nav-item">
-        <a href="#home" data-bs-toggle="tab" aria-expanded="false" class="nav-link active">
-            <span class="d-md-block">JUST ARRIVED</span>
-        </a>
-    </li>
-    <li class="nav-item">
-        <a href="#profile" data-bs-toggle="tab" aria-expanded="true" class="nav-link">
-            <span class="d-md-block">POPULAR MOVIES</span>
-        </a>
-    </li>
-	<li class="nav-item">
-        <a href="#settings_o" data-bs-toggle="tab" aria-expanded="false" class="nav-link">
-            <span class="d-md-block">FREE MOVIES</span>
-        </a>
-    </li>
-	
-</ul>
- </div>
- <div class="popular_2 row mt-4">
-   <div class="tab-content">
-    <div class="tab-pane active" id="home">
-	  <div class="popular_2i row">
-	   <div class="col-md-6">
-	    <div class="popular_2i1 row">
-		 <div class="col-md-4 col-4">
-		  <div class="popular_2i1lm position-relative clearfix">
-		   <div class="popular_2i1lm1 clearfix">
-		      <div class="grid">
-		  <figure class="effect-jazz mb-0">
-			<img src="{% static 'img/img18.jpg' %}" class="d-block w-100" alt="...">
-		  </figure>
-	  </div>
-		   </div>
-		   <div class="popular_2i1lm2 position-absolute top-0 w-100 text-center clearfix">
-		    <ul>
-			 <li class="d-inline-block"><a href="#"><i class="fa fa-link col_red"></i></a></li>
-			 <li class="d-inline-block"><a href="#"><i class="fa fa-search col_red"></i></a></li>
-			</ul>
-		   </div>
-		  </div>
-		 </div>
-		 <div class="col-md-8 col-8">
-		  <div class="popular_2i1r">
-		   <h5><a class="col_red" href="#">Spider-Man 2</a></h5>
-		   <h6>Action, Thriller</h6>
-		   <h6> Imdb 8.2  <span class="ms-2"><i class="fa fa-star col_red me-1"></i></span> Year : 2022 <span class="ms-2">Runtime: 1h 49m</span></h6>
-		   <p>Four waves of increasingly deadly alien attacks have left most of  ruin. Cassie is on the run, desperately trying to save her younger brother.</p>
-		   <h6 class="mb-0"><a class="button" href="#"> More Info - Trailer</a></h6>
-		  </div>
-		 </div>
+	<div class="container">
+		<div class="row trend_1">
+			<div class="col-md-12">
+				<div class="trend_1l">
+					<h4 class="mb-0"><i class="fa fa-youtube-play align-middle col_red me-1"></i> Trending <span
+							class="col_red">Movies</span></h4>
+				</div>
+			</div>
 		</div>
-	   </div>
-	   <div class="col-md-6">
-	    <div class="popular_2i1 row">
-		 <div class="col-md-4 col-4">
-		  <div class="popular_2i1lm position-relative clearfix">
-		   <div class="popular_2i1lm1 clearfix">
-		      <div class="grid">
-		  <figure class="effect-jazz mb-0">
-			<img src="{% static 'img/img19.jpg' %}" class="d-block w-100" alt="...">
-		  </figure>
-	  </div>
-		   </div>
-		   <div class="popular_2i1lm2 position-absolute top-0 w-100 text-center clearfix">
-		    <ul>
-			 <li class="d-inline-block"><a href="#"><i class="fa fa-link col_red"></i></a></li>
-			 <li class="d-inline-block"><a href="#"><i class="fa fa-search col_red"></i></a></li>
+		<div class="row popular_1 mt-4">
+			<ul class="nav nav-tabs  border-0 mb-0">
+				<li class="nav-item">
+					<a href="#home" data-bs-toggle="tab" aria-expanded="false" class="nav-link active">
+						<span class="d-md-block">JUST ARRIVED</span>
+					</a>
+				</li>
+				<li class="nav-item">
+					<a href="#profile" data-bs-toggle="tab" aria-expanded="true" class="nav-link">
+						<span class="d-md-block">POPULAR MOVIES</span>
+					</a>
+				</li>
+				<li class="nav-item">
+					<a href="#settings_o" data-bs-toggle="tab" aria-expanded="false" class="nav-link">
+						<span class="d-md-block">FREE MOVIES</span>
+					</a>
+				</li>
+
 			</ul>
-		   </div>
-		  </div>
-		 </div>
-		 <div class="col-md-8 col-8">
-		  <div class="popular_2i1r">
-		   <h5><a class="col_red" href="#">Eagle Eye</a></h5>
-		   <h6>Action, Thriller</h6>
-		   <h6> Imdb 8.3  <span class="ms-2"><i class="fa fa-star col_red me-1"></i></span> Year : 2022 <span class="ms-2">Runtime: 2h 29m</span></h6>
-		   <p>Four waves of increasingly deadly alien attacks have left most of  ruin. Cassie is on the run, desperately trying to save her younger brother.</p>
-		   <h6 class="mb-0"><a class="button" href="#"> More Info - Trailer</a></h6>
-		  </div>
-		 </div>
 		</div>
-	   </div>
-	  </div>
-	  <div class="popular_2i row mt-4">
-	   <div class="col-md-6">
-	    <div class="popular_2i1 row">
-		 <div class="col-md-4 col-4">
-		  <div class="popular_2i1lm position-relative clearfix">
-		   <div class="popular_2i1lm1 clearfix">
-		      <div class="grid">
-		  <figure class="effect-jazz mb-0">
-			<img src="{% static 'img/img20.jpg' %}" class="d-block w-100" alt="...">
-		  </figure>
-	  </div>
-		   </div>
-		   <div class="popular_2i1lm2 position-absolute top-0 w-100 text-center clearfix">
-		    <ul>
-			 <li class="d-inline-block"><a href="#"><i class="fa fa-link col_red"></i></a></li>
-			 <li class="d-inline-block"><a href="#"><i class="fa fa-search col_red"></i></a></li>
-			</ul>
-		   </div>
-		  </div>
-		 </div>
-		 <div class="col-md-8 col-8">
-		  <div class="popular_2i1r">
-		   <h5><a class="col_red" href="#">Vacancy</a></h5>
-		   <h6>Action, Thriller</h6>
-		   <h6> Imdb 8.4  <span class="ms-2"><i class="fa fa-star col_red me-1"></i></span> Year : 2022 <span class="ms-2">Runtime: 1h 59m</span></h6>
-		   <p>Four waves of increasingly deadly alien attacks have left most of  ruin. Cassie is on the run, desperately trying to save her younger brother.</p>
-		   <h6 class="mb-0"><a class="button" href="#"> More Info - Trailer</a></h6>
-		  </div>
-		 </div>
+		<div class="popular_2 row mt-4">
+			<div class="tab-content">
+				<div class="tab-pane active" id="home">
+					<div class="popular_2i row">
+						<div class="col-md-6">
+							<div class="popular_2i1 row">
+								<div class="col-md-4 col-4">
+									<div class="popular_2i1lm position-relative clearfix">
+										<div class="popular_2i1lm1 clearfix">
+											<div class="grid">
+												<figure class="effect-jazz mb-0">
+													<img src="{% static 'img/img18.jpg' %}" class="d-block w-100"
+														alt="...">
+												</figure>
+											</div>
+										</div>
+										<div class="popular_2i1lm2 position-absolute top-0 w-100 text-center clearfix">
+											<ul>
+												<li class="d-inline-block"><a href="#"><i
+															class="fa fa-link col_red"></i></a></li>
+												<li class="d-inline-block"><a href="#"><i
+															class="fa fa-search col_red"></i></a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-8 col-8">
+									<div class="popular_2i1r">
+										<h5><a class="col_red" href="#">Spider-Man 2</a></h5>
+										<h6>Action, Thriller</h6>
+										<h6> Imdb 8.2 <span class="ms-2"><i class="fa fa-star col_red me-1"></i></span>
+											Year : 2022 <span class="ms-2">Runtime: 1h 49m</span></h6>
+										<p>Four waves of increasingly deadly alien attacks have left most of ruin.
+											Cassie is on the run, desperately trying to save her younger brother.</p>
+										<h6 class="mb-0"><a class="button" href="#"> More Info - Trailer</a></h6>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="popular_2i1 row">
+								<div class="col-md-4 col-4">
+									<div class="popular_2i1lm position-relative clearfix">
+										<div class="popular_2i1lm1 clearfix">
+											<div class="grid">
+												<figure class="effect-jazz mb-0">
+													<img src="{% static 'img/img19.jpg' %}" class="d-block w-100"
+														alt="...">
+												</figure>
+											</div>
+										</div>
+										<div class="popular_2i1lm2 position-absolute top-0 w-100 text-center clearfix">
+											<ul>
+												<li class="d-inline-block"><a href="#"><i
+															class="fa fa-link col_red"></i></a></li>
+												<li class="d-inline-block"><a href="#"><i
+															class="fa fa-search col_red"></i></a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-8 col-8">
+									<div class="popular_2i1r">
+										<h5><a class="col_red" href="#">Eagle Eye</a></h5>
+										<h6>Action, Thriller</h6>
+										<h6> Imdb 8.3 <span class="ms-2"><i class="fa fa-star col_red me-1"></i></span>
+											Year : 2022 <span class="ms-2">Runtime: 2h 29m</span></h6>
+										<p>Four waves of increasingly deadly alien attacks have left most of ruin.
+											Cassie is on the run, desperately trying to save her younger brother.</p>
+										<h6 class="mb-0"><a class="button" href="#"> More Info - Trailer</a></h6>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="popular_2i row mt-4">
+						<div class="col-md-6">
+							<div class="popular_2i1 row">
+								<div class="col-md-4 col-4">
+									<div class="popular_2i1lm position-relative clearfix">
+										<div class="popular_2i1lm1 clearfix">
+											<div class="grid">
+												<figure class="effect-jazz mb-0">
+													<img src="{% static 'img/img20.jpg' %}" class="d-block w-100"
+														alt="...">
+												</figure>
+											</div>
+										</div>
+										<div class="popular_2i1lm2 position-absolute top-0 w-100 text-center clearfix">
+											<ul>
+												<li class="d-inline-block"><a href="#"><i
+															class="fa fa-link col_red"></i></a></li>
+												<li class="d-inline-block"><a href="#"><i
+															class="fa fa-search col_red"></i></a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-8 col-8">
+									<div class="popular_2i1r">
+										<h5><a class="col_red" href="#">Vacancy</a></h5>
+										<h6>Action, Thriller</h6>
+										<h6> Imdb 8.4 <span class="ms-2"><i class="fa fa-star col_red me-1"></i></span>
+											Year : 2022 <span class="ms-2">Runtime: 1h 59m</span></h6>
+										<p>Four waves of increasingly deadly alien attacks have left most of ruin.
+											Cassie is on the run, desperately trying to save her younger brother.</p>
+										<h6 class="mb-0"><a class="button" href="#"> More Info - Trailer</a></h6>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="popular_2i1 row">
+								<div class="col-md-4 col-4">
+									<div class="popular_2i1lm position-relative clearfix">
+										<div class="popular_2i1lm1 clearfix">
+											<div class="grid">
+												<figure class="effect-jazz mb-0">
+													<img src="{% static 'img/img21.jpg' %}" class="d-block w-100"
+														alt="...">
+												</figure>
+											</div>
+										</div>
+										<div class="popular_2i1lm2 position-absolute top-0 w-100 text-center clearfix">
+											<ul>
+												<li class="d-inline-block"><a href="#"><i
+															class="fa fa-link col_red"></i></a></li>
+												<li class="d-inline-block"><a href="#"><i
+															class="fa fa-search col_red"></i></a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-8 col-8">
+									<div class="popular_2i1r">
+										<h5><a class="col_red" href="#">Motives</a></h5>
+										<h6>Action, Thriller</h6>
+										<h6> Imdb 8.6 <span class="ms-2"><i class="fa fa-star col_red me-1"></i></span>
+											Year : 2022 <span class="ms-2">Runtime: 1h 48m</span></h6>
+										<p>Four waves of increasingly deadly alien attacks have left most of ruin.
+											Cassie is on the run, desperately trying to save her younger brother.</p>
+										<h6 class="mb-0"><a class="button" href="#"> More Info - Trailer</a></h6>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="tab-pane" id="profile">
+					<div class="popular_2i row">
+						<div class="col-md-6">
+							<div class="popular_2i1 row">
+								<div class="col-md-4 col-4">
+									<div class="popular_2i1lm position-relative clearfix">
+										<div class="popular_2i1lm1 clearfix">
+											<div class="grid">
+												<figure class="effect-jazz mb-0">
+													<img src="{% static 'img/img22.jpg' %}" class="d-block w-100"
+														alt="...">
+												</figure>
+											</div>
+										</div>
+										<div class="popular_2i1lm2 position-absolute top-0 w-100 text-center clearfix">
+											<ul>
+												<li class="d-inline-block"><a href="#"><i
+															class="fa fa-link col_red"></i></a></li>
+												<li class="d-inline-block"><a href="#"><i
+															class="fa fa-search col_red"></i></a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-8 col-8">
+									<div class="popular_2i1r">
+										<h5><a class="col_red" href="#">Spider-Man 3</a></h5>
+										<h6>Action, Thriller</h6>
+										<h6> Imdb 8.2 <span class="ms-2"><i class="fa fa-star col_red me-1"></i></span>
+											Year : 2022 <span class="ms-2">Runtime: 1h 49m</span></h6>
+										<p>Four waves of increasingly deadly alien attacks have left most of ruin.
+											Cassie is on the run, desperately trying to save her younger brother.</p>
+										<h6 class="mb-0"><a class="button" href="#"> More Info - Trailer</a></h6>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="popular_2i1 row">
+								<div class="col-md-4 col-4">
+									<div class="popular_2i1lm position-relative clearfix">
+										<div class="popular_2i1lm1 clearfix">
+											<div class="grid">
+												<figure class="effect-jazz mb-0">
+													<img src="{% static 'img/img23.jpg' %}" class="d-block w-100"
+														alt="...">
+												</figure>
+											</div>
+										</div>
+										<div class="popular_2i1lm2 position-absolute top-0 w-100 text-center clearfix">
+											<ul>
+												<li class="d-inline-block"><a href="#"><i
+															class="fa fa-link col_red"></i></a></li>
+												<li class="d-inline-block"><a href="#"><i
+															class="fa fa-search col_red"></i></a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-8 col-8">
+									<div class="popular_2i1r">
+										<h5><a class="col_red" href="#">Ice Age</a></h5>
+										<h6>Action, Thriller</h6>
+										<h6> Imdb 8.3 <span class="ms-2"><i class="fa fa-star col_red me-1"></i></span>
+											Year : 2022 <span class="ms-2">Runtime: 2h 29m</span></h6>
+										<p>Four waves of increasingly deadly alien attacks have left most of ruin.
+											Cassie is on the run, desperately trying to save her younger brother.</p>
+										<h6 class="mb-0"><a class="button" href="#"> More Info - Trailer</a></h6>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="popular_2i row mt-4">
+						<div class="col-md-6">
+							<div class="popular_2i1 row">
+								<div class="col-md-4 col-4">
+									<div class="popular_2i1lm position-relative clearfix">
+										<div class="popular_2i1lm1 clearfix">
+											<div class="grid">
+												<figure class="effect-jazz mb-0">
+													<img src="{% static 'img/img24.jpg' %}" class="d-block w-100"
+														alt="...">
+												</figure>
+											</div>
+										</div>
+										<div class="popular_2i1lm2 position-absolute top-0 w-100 text-center clearfix">
+											<ul>
+												<li class="d-inline-block"><a href="#"><i
+															class="fa fa-link col_red"></i></a></li>
+												<li class="d-inline-block"><a href="#"><i
+															class="fa fa-search col_red"></i></a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-8 col-8">
+									<div class="popular_2i1r">
+										<h5><a class="col_red" href="#">Galadiator</a></h5>
+										<h6>Action, Thriller</h6>
+										<h6> Imdb 8.4 <span class="ms-2"><i class="fa fa-star col_red me-1"></i></span>
+											Year : 2022 <span class="ms-2">Runtime: 1h 59m</span></h6>
+										<p>Four waves of increasingly deadly alien attacks have left most of ruin.
+											Cassie is on the run, desperately trying to save her younger brother.</p>
+										<h6 class="mb-0"><a class="button" href="#"> More Info - Trailer</a></h6>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="popular_2i1 row">
+								<div class="col-md-4 col-4">
+									<div class="popular_2i1lm position-relative clearfix">
+										<div class="popular_2i1lm1 clearfix">
+											<div class="grid">
+												<figure class="effect-jazz mb-0">
+													<img src="{% static 'img/img25.jpg' %}" class="d-block w-100"
+														alt="...">
+												</figure>
+											</div>
+										</div>
+										<div class="popular_2i1lm2 position-absolute top-0 w-100 text-center clearfix">
+											<ul>
+												<li class="d-inline-block"><a href="#"><i
+															class="fa fa-link col_red"></i></a></li>
+												<li class="d-inline-block"><a href="#"><i
+															class="fa fa-search col_red"></i></a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-8 col-8">
+									<div class="popular_2i1r">
+										<h5><a class="col_red" href="#">Trans Former</a></h5>
+										<h6>Action, Thriller</h6>
+										<h6> Imdb 8.6 <span class="ms-2"><i class="fa fa-star col_red me-1"></i></span>
+											Year : 2022 <span class="ms-2">Runtime: 1h 48m</span></h6>
+										<p>Four waves of increasingly deadly alien attacks have left most of ruin.
+											Cassie is on the run, desperately trying to save her younger brother.</p>
+										<h6 class="mb-0"><a class="button" href="#"> More Info - Trailer</a></h6>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="tab-pane" id="settings_o">
+					<div class="popular_2i row">
+						<div class="col-md-6">
+							<div class="popular_2i1 row">
+								<div class="col-md-4 col-4">
+									<div class="popular_2i1lm position-relative clearfix">
+										<div class="popular_2i1lm1 clearfix">
+											<div class="grid">
+												<figure class="effect-jazz mb-0">
+													<img src="{% static 'img/img26.jpg' %}" class="d-block w-100"
+														alt="...">
+												</figure>
+											</div>
+										</div>
+										<div class="popular_2i1lm2 position-absolute top-0 w-100 text-center clearfix">
+											<ul>
+												<li class="d-inline-block"><a href="#"><i
+															class="fa fa-link col_red"></i></a></li>
+												<li class="d-inline-block"><a href="#"><i
+															class="fa fa-search col_red"></i></a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-8 col-8">
+									<div class="popular_2i1r">
+										<h5><a class="col_red" href="#">Semp Porta</a></h5>
+										<h6>Action, Thriller</h6>
+										<h6> Imdb 8.2 <span class="ms-2"><i class="fa fa-star col_red me-1"></i></span>
+											Year : 2022 <span class="ms-2">Runtime: 1h 49m</span></h6>
+										<p>Four waves of increasingly deadly alien attacks have left most of ruin.
+											Cassie is on the run, desperately trying to save her younger brother.</p>
+										<h6 class="mb-0"><a class="button" href="#"> More Info - Trailer</a></h6>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="popular_2i1 row">
+								<div class="col-md-4 col-4">
+									<div class="popular_2i1lm position-relative clearfix">
+										<div class="popular_2i1lm1 clearfix">
+											<div class="grid">
+												<figure class="effect-jazz mb-0">
+													<img src="{% static 'img/img27.jpg' %}" class="d-block w-100"
+														alt="...">
+												</figure>
+											</div>
+										</div>
+										<div class="popular_2i1lm2 position-absolute top-0 w-100 text-center clearfix">
+											<ul>
+												<li class="d-inline-block"><a href="#"><i
+															class="fa fa-link col_red"></i></a></li>
+												<li class="d-inline-block"><a href="#"><i
+															class="fa fa-search col_red"></i></a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-8 col-8">
+									<div class="popular_2i1r">
+										<h5><a class="col_red" href="#">Eget Diam</a></h5>
+										<h6>Action, Thriller</h6>
+										<h6> Imdb 8.3 <span class="ms-2"><i class="fa fa-star col_red me-1"></i></span>
+											Year : 2022 <span class="ms-2">Runtime: 2h 29m</span></h6>
+										<p>Four waves of increasingly deadly alien attacks have left most of ruin.
+											Cassie is on the run, desperately trying to save her younger brother.</p>
+										<h6 class="mb-0"><a class="button" href="#"> More Info - Trailer</a></h6>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="popular_2i row mt-4">
+						<div class="col-md-6">
+							<div class="popular_2i1 row">
+								<div class="col-md-4 col-4">
+									<div class="popular_2i1lm position-relative clearfix">
+										<div class="popular_2i1lm1 clearfix">
+											<div class="grid">
+												<figure class="effect-jazz mb-0">
+													<img src="{% static 'img/img28.jpg' %}" class="d-block w-100"
+														alt="...">
+												</figure>
+											</div>
+										</div>
+										<div class="popular_2i1lm2 position-absolute top-0 w-100 text-center clearfix">
+											<ul>
+												<li class="d-inline-block"><a href="#"><i
+															class="fa fa-link col_red"></i></a></li>
+												<li class="d-inline-block"><a href="#"><i
+															class="fa fa-search col_red"></i></a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-8 col-8">
+									<div class="popular_2i1r">
+										<h5><a class="col_red" href="#">Quis Sem</a></h5>
+										<h6>Action, Thriller</h6>
+										<h6> Imdb 8.4 <span class="ms-2"><i class="fa fa-star col_red me-1"></i></span>
+											Year : 2022 <span class="ms-2">Runtime: 1h 59m</span></h6>
+										<p>Four waves of increasingly deadly alien attacks have left most of ruin.
+											Cassie is on the run, desperately trying to save her younger brother.</p>
+										<h6 class="mb-0"><a class="button" href="#"> More Info - Trailer</a></h6>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="popular_2i1 row">
+								<div class="col-md-4 col-4">
+									<div class="popular_2i1lm position-relative clearfix">
+										<div class="popular_2i1lm1 clearfix">
+											<div class="grid">
+												<figure class="effect-jazz mb-0">
+													<img src="{% static 'img/img29.jpg' %}" class="d-block w-100"
+														alt="...">
+												</figure>
+											</div>
+										</div>
+										<div class="popular_2i1lm2 position-absolute top-0 w-100 text-center clearfix">
+											<ul>
+												<li class="d-inline-block"><a href="#"><i
+															class="fa fa-link col_red"></i></a></li>
+												<li class="d-inline-block"><a href="#"><i
+															class="fa fa-search col_red"></i></a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-8 col-8">
+									<div class="popular_2i1r">
+										<h5><a class="col_red" href="#">Ipsum Lorem</a></h5>
+										<h6>Action, Thriller</h6>
+										<h6> Imdb 8.6 <span class="ms-2"><i class="fa fa-star col_red me-1"></i></span>
+											Year : 2022 <span class="ms-2">Runtime: 1h 48m</span></h6>
+										<p>Four waves of increasingly deadly alien attacks have left most of ruin.
+											Cassie is on the run, desperately trying to save her younger brother.</p>
+										<h6 class="mb-0"><a class="button" href="#"> More Info - Trailer</a></h6>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
 		</div>
-	   </div>
-	   <div class="col-md-6">
-	    <div class="popular_2i1 row">
-		 <div class="col-md-4 col-4">
-		  <div class="popular_2i1lm position-relative clearfix">
-		   <div class="popular_2i1lm1 clearfix">
-		      <div class="grid">
-		  <figure class="effect-jazz mb-0">
-			<img src="{% static 'img/img21.jpg' %}" class="d-block w-100" alt="...">
-		  </figure>
-	  </div>
-		   </div>
-		   <div class="popular_2i1lm2 position-absolute top-0 w-100 text-center clearfix">
-		    <ul>
-			 <li class="d-inline-block"><a href="#"><i class="fa fa-link col_red"></i></a></li>
-			 <li class="d-inline-block"><a href="#"><i class="fa fa-search col_red"></i></a></li>
-			</ul>
-		   </div>
-		  </div>
-		 </div>
-		 <div class="col-md-8 col-8">
-		  <div class="popular_2i1r">
-		   <h5><a class="col_red" href="#">Motives</a></h5>
-		   <h6>Action, Thriller</h6>
-		   <h6> Imdb 8.6  <span class="ms-2"><i class="fa fa-star col_red me-1"></i></span> Year : 2022 <span class="ms-2">Runtime: 1h 48m</span></h6>
-		   <p>Four waves of increasingly deadly alien attacks have left most of  ruin. Cassie is on the run, desperately trying to save her younger brother.</p>
-		   <h6 class="mb-0"><a class="button" href="#"> More Info - Trailer</a></h6>
-		  </div>
-		 </div>
-		</div>
-	   </div>
-	  </div>
-    </div>
-    <div class="tab-pane" id="profile">
-       <div class="popular_2i row">
-	   <div class="col-md-6">
-	    <div class="popular_2i1 row">
-		 <div class="col-md-4 col-4">
-		  <div class="popular_2i1lm position-relative clearfix">
-		   <div class="popular_2i1lm1 clearfix">
-		      <div class="grid">
-		  <figure class="effect-jazz mb-0">
-			<img src="{% static 'img/img22.jpg' %}" class="d-block w-100" alt="...">
-		  </figure>
-	  </div>
-		   </div>
-		   <div class="popular_2i1lm2 position-absolute top-0 w-100 text-center clearfix">
-		    <ul>
-			 <li class="d-inline-block"><a href="#"><i class="fa fa-link col_red"></i></a></li>
-			 <li class="d-inline-block"><a href="#"><i class="fa fa-search col_red"></i></a></li>
-			</ul>
-		   </div>
-		  </div>
-		 </div>
-		 <div class="col-md-8 col-8">
-		  <div class="popular_2i1r">
-		   <h5><a class="col_red" href="#">Spider-Man 3</a></h5>
-		   <h6>Action, Thriller</h6>
-		   <h6> Imdb 8.2  <span class="ms-2"><i class="fa fa-star col_red me-1"></i></span> Year : 2022 <span class="ms-2">Runtime: 1h 49m</span></h6>
-		   <p>Four waves of increasingly deadly alien attacks have left most of  ruin. Cassie is on the run, desperately trying to save her younger brother.</p>
-		   <h6 class="mb-0"><a class="button" href="#"> More Info - Trailer</a></h6>
-		  </div>
-		 </div>
-		</div>
-	   </div>
-	   <div class="col-md-6">
-	    <div class="popular_2i1 row">
-		 <div class="col-md-4 col-4">
-		  <div class="popular_2i1lm position-relative clearfix">
-		   <div class="popular_2i1lm1 clearfix">
-		      <div class="grid">
-		  <figure class="effect-jazz mb-0">
-			<img src="{% static 'img/img23.jpg' %}" class="d-block w-100" alt="...">
-		  </figure>
-	  </div>
-		   </div>
-		   <div class="popular_2i1lm2 position-absolute top-0 w-100 text-center clearfix">
-		    <ul>
-			 <li class="d-inline-block"><a href="#"><i class="fa fa-link col_red"></i></a></li>
-			 <li class="d-inline-block"><a href="#"><i class="fa fa-search col_red"></i></a></li>
-			</ul>
-		   </div>
-		  </div>
-		 </div>
-		 <div class="col-md-8 col-8">
-		  <div class="popular_2i1r">
-		   <h5><a class="col_red" href="#">Ice Age</a></h5>
-		   <h6>Action, Thriller</h6>
-		   <h6> Imdb 8.3  <span class="ms-2"><i class="fa fa-star col_red me-1"></i></span> Year : 2022 <span class="ms-2">Runtime: 2h 29m</span></h6>
-		   <p>Four waves of increasingly deadly alien attacks have left most of  ruin. Cassie is on the run, desperately trying to save her younger brother.</p>
-		   <h6 class="mb-0"><a class="button" href="#"> More Info - Trailer</a></h6>
-		  </div>
-		 </div>
-		</div>
-	   </div>
-	  </div>
-	  <div class="popular_2i row mt-4">
-	   <div class="col-md-6">
-	    <div class="popular_2i1 row">
-		 <div class="col-md-4 col-4">
-		  <div class="popular_2i1lm position-relative clearfix">
-		   <div class="popular_2i1lm1 clearfix">
-		      <div class="grid">
-		  <figure class="effect-jazz mb-0">
-			<img src="{% static 'img/img24.jpg' %}" class="d-block w-100" alt="...">
-		  </figure>
-	  </div>
-		   </div>
-		   <div class="popular_2i1lm2 position-absolute top-0 w-100 text-center clearfix">
-		    <ul>
-			 <li class="d-inline-block"><a href="#"><i class="fa fa-link col_red"></i></a></li>
-			 <li class="d-inline-block"><a href="#"><i class="fa fa-search col_red"></i></a></li>
-			</ul>
-		   </div>
-		  </div>
-		 </div>
-		 <div class="col-md-8 col-8">
-		  <div class="popular_2i1r">
-		   <h5><a class="col_red" href="#">Galadiator</a></h5>
-		   <h6>Action, Thriller</h6>
-		   <h6> Imdb 8.4  <span class="ms-2"><i class="fa fa-star col_red me-1"></i></span> Year : 2022 <span class="ms-2">Runtime: 1h 59m</span></h6>
-		   <p>Four waves of increasingly deadly alien attacks have left most of  ruin. Cassie is on the run, desperately trying to save her younger brother.</p>
-		   <h6 class="mb-0"><a class="button" href="#"> More Info - Trailer</a></h6>
-		  </div>
-		 </div>
-		</div>
-	   </div>
-	   <div class="col-md-6">
-	    <div class="popular_2i1 row">
-		 <div class="col-md-4 col-4">
-		  <div class="popular_2i1lm position-relative clearfix">
-		   <div class="popular_2i1lm1 clearfix">
-		      <div class="grid">
-		  <figure class="effect-jazz mb-0">
-			<img src="{% static 'img/img25.jpg' %}" class="d-block w-100" alt="...">
-		  </figure>
-	  </div>
-		   </div>
-		   <div class="popular_2i1lm2 position-absolute top-0 w-100 text-center clearfix">
-		    <ul>
-			 <li class="d-inline-block"><a href="#"><i class="fa fa-link col_red"></i></a></li>
-			 <li class="d-inline-block"><a href="#"><i class="fa fa-search col_red"></i></a></li>
-			</ul>
-		   </div>
-		  </div>
-		 </div>
-		 <div class="col-md-8 col-8">
-		  <div class="popular_2i1r">
-		   <h5><a class="col_red" href="#">Trans Former</a></h5>
-		   <h6>Action, Thriller</h6>
-		   <h6> Imdb 8.6  <span class="ms-2"><i class="fa fa-star col_red me-1"></i></span> Year : 2022 <span class="ms-2">Runtime: 1h 48m</span></h6>
-		   <p>Four waves of increasingly deadly alien attacks have left most of  ruin. Cassie is on the run, desperately trying to save her younger brother.</p>
-		   <h6 class="mb-0"><a class="button" href="#"> More Info - Trailer</a></h6>
-		  </div>
-		 </div>
-		</div>
-	   </div>
-	  </div>
-    </div>
-	
-	<div class="tab-pane" id="settings_o">
-	    <div class="popular_2i row">
-	   <div class="col-md-6">
-	    <div class="popular_2i1 row">
-		 <div class="col-md-4 col-4">
-		  <div class="popular_2i1lm position-relative clearfix">
-		   <div class="popular_2i1lm1 clearfix">
-		      <div class="grid">
-		  <figure class="effect-jazz mb-0">
-			<img src="{% static 'img/img26.jpg' %}" class="d-block w-100" alt="...">
-		  </figure>
-	  </div>
-		   </div>
-		   <div class="popular_2i1lm2 position-absolute top-0 w-100 text-center clearfix">
-		    <ul>
-			 <li class="d-inline-block"><a href="#"><i class="fa fa-link col_red"></i></a></li>
-			 <li class="d-inline-block"><a href="#"><i class="fa fa-search col_red"></i></a></li>
-			</ul>
-		   </div>
-		  </div>
-		 </div>
-		 <div class="col-md-8 col-8">
-		  <div class="popular_2i1r">
-		   <h5><a class="col_red" href="#">Semp Porta</a></h5>
-		   <h6>Action, Thriller</h6>
-		   <h6> Imdb 8.2  <span class="ms-2"><i class="fa fa-star col_red me-1"></i></span> Year : 2022 <span class="ms-2">Runtime: 1h 49m</span></h6>
-		   <p>Four waves of increasingly deadly alien attacks have left most of  ruin. Cassie is on the run, desperately trying to save her younger brother.</p>
-		   <h6 class="mb-0"><a class="button" href="#"> More Info - Trailer</a></h6>
-		  </div>
-		 </div>
-		</div>
-	   </div>
-	   <div class="col-md-6">
-	    <div class="popular_2i1 row">
-		 <div class="col-md-4 col-4">
-		  <div class="popular_2i1lm position-relative clearfix">
-		   <div class="popular_2i1lm1 clearfix">
-		      <div class="grid">
-		  <figure class="effect-jazz mb-0">
-			<img src="{% static 'img/img27.jpg' %}" class="d-block w-100" alt="...">
-		  </figure>
-	  </div>
-		   </div>
-		   <div class="popular_2i1lm2 position-absolute top-0 w-100 text-center clearfix">
-		    <ul>
-			 <li class="d-inline-block"><a href="#"><i class="fa fa-link col_red"></i></a></li>
-			 <li class="d-inline-block"><a href="#"><i class="fa fa-search col_red"></i></a></li>
-			</ul>
-		   </div>
-		  </div>
-		 </div>
-		 <div class="col-md-8 col-8">
-		  <div class="popular_2i1r">
-		   <h5><a class="col_red" href="#">Eget Diam</a></h5>
-		   <h6>Action, Thriller</h6>
-		   <h6> Imdb 8.3  <span class="ms-2"><i class="fa fa-star col_red me-1"></i></span> Year : 2022 <span class="ms-2">Runtime: 2h 29m</span></h6>
-		   <p>Four waves of increasingly deadly alien attacks have left most of  ruin. Cassie is on the run, desperately trying to save her younger brother.</p>
-		   <h6 class="mb-0"><a class="button" href="#"> More Info - Trailer</a></h6>
-		  </div>
-		 </div>
-		</div>
-	   </div>
-	  </div>
-	  <div class="popular_2i row mt-4">
-	   <div class="col-md-6">
-	    <div class="popular_2i1 row">
-		 <div class="col-md-4 col-4">
-		  <div class="popular_2i1lm position-relative clearfix">
-		   <div class="popular_2i1lm1 clearfix">
-		      <div class="grid">
-		  <figure class="effect-jazz mb-0">
-			<img src="{% static 'img/img28.jpg' %}" class="d-block w-100" alt="...">
-		  </figure>
-	  </div>
-		   </div>
-		   <div class="popular_2i1lm2 position-absolute top-0 w-100 text-center clearfix">
-		    <ul>
-			 <li class="d-inline-block"><a href="#"><i class="fa fa-link col_red"></i></a></li>
-			 <li class="d-inline-block"><a href="#"><i class="fa fa-search col_red"></i></a></li>
-			</ul>
-		   </div>
-		  </div>
-		 </div>
-		 <div class="col-md-8 col-8">
-		  <div class="popular_2i1r">
-		   <h5><a class="col_red" href="#">Quis Sem</a></h5>
-		   <h6>Action, Thriller</h6>
-		   <h6> Imdb 8.4  <span class="ms-2"><i class="fa fa-star col_red me-1"></i></span> Year : 2022 <span class="ms-2">Runtime: 1h 59m</span></h6>
-		   <p>Four waves of increasingly deadly alien attacks have left most of  ruin. Cassie is on the run, desperately trying to save her younger brother.</p>
-		   <h6 class="mb-0"><a class="button" href="#"> More Info - Trailer</a></h6>
-		  </div>
-		 </div>
-		</div>
-	   </div>
-	   <div class="col-md-6">
-	    <div class="popular_2i1 row">
-		 <div class="col-md-4 col-4">
-		  <div class="popular_2i1lm position-relative clearfix">
-		   <div class="popular_2i1lm1 clearfix">
-		      <div class="grid">
-		  <figure class="effect-jazz mb-0">
-			<img src="{% static 'img/img29.jpg' %}" class="d-block w-100" alt="...">
-		  </figure>
-	  </div>
-		   </div>
-		   <div class="popular_2i1lm2 position-absolute top-0 w-100 text-center clearfix">
-		    <ul>
-			 <li class="d-inline-block"><a href="#"><i class="fa fa-link col_red"></i></a></li>
-			 <li class="d-inline-block"><a href="#"><i class="fa fa-search col_red"></i></a></li>
-			</ul>
-		   </div>
-		  </div>
-		 </div>
-		 <div class="col-md-8 col-8">
-		  <div class="popular_2i1r">
-		   <h5><a class="col_red" href="#">Ipsum Lorem</a></h5>
-		   <h6>Action, Thriller</h6>
-		   <h6> Imdb 8.6  <span class="ms-2"><i class="fa fa-star col_red me-1"></i></span> Year : 2022 <span class="ms-2">Runtime: 1h 48m</span></h6>
-		   <p>Four waves of increasingly deadly alien attacks have left most of  ruin. Cassie is on the run, desperately trying to save her younger brother.</p>
-		   <h6 class="mb-0"><a class="button" href="#"> More Info - Trailer</a></h6>
-		  </div>
-		 </div>
-		</div>
-	   </div>
-	  </div>
-    </div>
-	
-</div>
- </div>
-</div>
+	</div>
 </section>
 
 <section id="choice" class="pt-4 pb-5">
-<div class="container">
- <div class="row trend_1">
-  <div class="col-md-6 col-6">
-   <div class="trend_1l">
-    <h4 class="mb-0"><i class="fa fa-youtube-play align-middle col_red me-1"></i> Most <span class="col_red">Searched </span></h4>
-   </div>
-  </div>
-  <div class="col-md-6 col-6">
-   <div class="trend_1r text-end">
-     <h6 class="mb-0"><a class="button" href="#"> View All</a></h6>
-   </div>
-  </div>
- </div>
- <div class="row trend_2 mt-4">
-   <div id="carouselExampleCaptions3" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-indicators">
-    <button type="button" data-bs-target="#carouselExampleCaptions3" data-bs-slide-to="0" class="active" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#carouselExampleCaptions3" data-bs-slide-to="1" aria-label="Slide 2" class="" aria-current="true"></button>
-  </div>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <div class="trend_2i row">
-	    <div class="col-md-4">
-		  <div class="trend_2im clearfix position-relative">
-		   <div class="trend_2im1 clearfix">
-		     <div class="grid">
-		  <figure class="effect-jazz mb-0">
-			<img src="{% static 'img/img30.jpg' %}" class="d-block w-100" alt="...">
-		  </figure>
-	  </div>
-		   </div>
-		   <div class="trend_2im2 clearfix  position-absolute w-100 top-0">
-		     <h5><a class="col_red" href="#">Vincenzo</a></h5>
-			<span class="col_red">
-		 <i class="fa fa-star"></i>
-		 <i class="fa fa-star"></i>
-		 <i class="fa fa-star"></i>
-		 <i class="fa fa-star"></i>
-		 <i class="fa fa-star"></i>
-		</span>
-		<p class="mb-0">2 Views</p>
-		   </div>
-		  </div>
-		    
+	<div class="container">
+		<div class="row trend_1">
+			<div class="col-md-6 col-6">
+				<div class="trend_1l">
+					<h4 class="mb-0"><i class="fa fa-youtube-play align-middle col_red me-1"></i> Most <span
+							class="col_red">Searched </span></h4>
+				</div>
+			</div>
+			<div class="col-md-6 col-6">
+				<div class="trend_1r text-end">
+					<h6 class="mb-0"><a class="button" href="#"> View All</a></h6>
+				</div>
+			</div>
 		</div>
-		<div class="col-md-4">
-		  <div class="trend_2im clearfix position-relative">
-		   <div class="trend_2im1 clearfix">
-		     <div class="grid">
-		  <figure class="effect-jazz mb-0">
-			<img src="{% static 'img/img31.jpg' %}" class="d-block w-100" alt="...">
-		  </figure>
-	  </div>
-		   </div>
-		   <div class="trend_2im2 clearfix  position-absolute w-100 top-0">
-		     <h5><a class="col_red" href="#">Sweet Home</a></h5>
-			<span class="col_red">
-		 <i class="fa fa-star"></i>
-		 <i class="fa fa-star"></i>
-		 <i class="fa fa-star"></i>
-		 <i class="fa fa-star"></i>
-		 <i class="fa fa-star"></i>
-		</span>
-		<p class="mb-0">1 Views</p>
-		   </div>
-		  </div>
-		    
-		</div>
-		<div class="col-md-4">
-		  <div class="trend_2im clearfix position-relative">
-		   <div class="trend_2im1 clearfix">
-		     <div class="grid">
-		  <figure class="effect-jazz mb-0">
-			<img src="{% static 'img/img32.jpg' %}" class="d-block w-100" alt="...">
-		  </figure>
-	  </div>
-		   </div>
-		   <div class="trend_2im2 clearfix  position-absolute w-100 top-0">
-		     <h5><a class="col_red" href="#">Squid Game</a></h5>
-			<span class="col_red">
-		 <i class="fa fa-star"></i>
-		 <i class="fa fa-star"></i>
-		 <i class="fa fa-star"></i>
-		 <i class="fa fa-star"></i>
-		 <i class="fa fa-star"></i>
-		</span>
-		<p class="mb-0">4 Views</p>
-		   </div>
-		  </div>
-		    
-		</div>
-		
-	  </div>
-    </div>
-    <div class="carousel-item">
-      <div class="trend_2i row">
-	    
-		<div class="col-md-4">
-		  <div class="trend_2im clearfix position-relative">
-		   <div class="trend_2im1 clearfix">
-		     <div class="grid">
-		  <figure class="effect-jazz mb-0">
-			<img src="{% static 'img/img33.jpg' %}" class="d-block w-100" alt="...">
-		  </figure>
-	  </div>
-		   </div>
-		   <div class="trend_2im2 clearfix  position-absolute w-100 top-0">
-		     <h5><a class="col_red" href="#"> The Crown</a></h5>
-			<span class="col_red">
-		 <i class="fa fa-star"></i>
-		 <i class="fa fa-star"></i>
-		 <i class="fa fa-star"></i>
-		 <i class="fa fa-star"></i>
-		 <i class="fa fa-star"></i>
-		</span>
-		<p class="mb-0">4 Views</p>
-		   </div>
-		  </div>
-		    
-		</div>
-		<div class="col-md-4">
-		  <div class="trend_2im clearfix position-relative">
-		   <div class="trend_2im1 clearfix">
-		     <div class="grid">
-		  <figure class="effect-jazz mb-0">
-			<img src="{% static 'img/img34.jpg' %}" class="d-block w-100" alt="...">
-		  </figure>
-	  </div>
-		   </div>
-		   <div class="trend_2im2 clearfix  position-absolute w-100 top-0">
-		     <h5><a class="col_red" href="#">Anne</a></h5>
-			<span class="col_red">
-		 <i class="fa fa-star"></i>
-		 <i class="fa fa-star"></i>
-		 <i class="fa fa-star"></i>
-		 <i class="fa fa-star"></i>
-		 <i class="fa fa-star"></i>
-		</span>
-		<p class="mb-0">6 Views</p>
-		   </div>
-		  </div>
-		    
-		</div>
-		<div class="col-md-4">
-		  <div class="trend_2im clearfix position-relative">
-		   <div class="trend_2im1 clearfix">
-		     <div class="grid">
-		  <figure class="effect-jazz mb-0">
-			<img src="{% static 'img/img35.jpg' %}" class="d-block w-100" alt="...">
-		  </figure>
-	  </div>
-		   </div>
-		   <div class="trend_2im2 clearfix  position-absolute w-100 top-0">
-		     <h5><a class="col_red" href="#">Extraordinary Attorney Woo</a></h5>
-			<span class="col_red">
-		 <i class="fa fa-star"></i>
-		 <i class="fa fa-star"></i>
-		 <i class="fa fa-star"></i>
-		 <i class="fa fa-star"></i>
-		 <i class="fa fa-star"></i>
-		</span>
-		<p class="mb-0">5 Views</p>
-		   </div>
-		  </div>
+		<div class="row trend_2 mt-4">
+			<div id="carouselExampleCaptions3" class="carousel slide" data-bs-ride="carousel">
+				<div class="carousel-indicators">
+					<button type="button" data-bs-target="#carouselExampleCaptions3" data-bs-slide-to="0" class="active"
+						aria-label="Slide 1"></button>
+					<button type="button" data-bs-target="#carouselExampleCaptions3" data-bs-slide-to="1"
+						aria-label="Slide 2" class="" aria-current="true"></button>
+				</div>
+				<div class="carousel-inner">
+					<div class="carousel-item active">
+						<div class="trend_2i row">
+							<div class="col-md-4">
+								<div class="trend_2im clearfix position-relative">
+									<div class="trend_2im1 clearfix">
+										<div class="grid">
+											<figure class="effect-jazz mb-0">
+												<img src="{% static 'img/img30.jpg' %}" class="d-block w-100" alt="...">
+											</figure>
+										</div>
+									</div>
+									<div class="trend_2im2 clearfix  position-absolute w-100 top-0">
+										<h5><a class="col_red" href="#">Vincenzo</a></h5>
+										<span class="col_red">
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star"></i>
+										</span>
 
-		    
-		</div>
-	  </div>
-    </div>
-    
-  </div>
+									</div>
+								</div>
 
-</div>
- </div>
-</div>
+							</div>
+							<div class="col-md-4">
+								<div class="trend_2im clearfix position-relative">
+									<div class="trend_2im1 clearfix">
+										<div class="grid">
+											<figure class="effect-jazz mb-0">
+												<img src="{% static 'img/img31.jpg' %}" class="d-block w-100" alt="...">
+											</figure>
+										</div>
+									</div>
+									<div class="trend_2im2 clearfix  position-absolute w-100 top-0">
+										<h5><a class="col_red" href="#">Sweet Home</a></h5>
+										<span class="col_red">
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star"></i>
+										</span>
+
+									</div>
+								</div>
+
+							</div>
+							<div class="col-md-4">
+								<div class="trend_2im clearfix position-relative">
+									<div class="trend_2im1 clearfix">
+										<div class="grid">
+											<figure class="effect-jazz mb-0">
+												<img src="{% static 'img/img32.jpg' %}" class="d-block w-100" alt="...">
+											</figure>
+										</div>
+									</div>
+									<div class="trend_2im2 clearfix  position-absolute w-100 top-0">
+										<h5><a class="col_red" href="#">Squid Game</a></h5>
+										<span class="col_red">
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star"></i>
+										</span>
+
+									</div>
+								</div>
+
+							</div>
+
+						</div>
+					</div>
+					<div class="carousel-item">
+						<div class="trend_2i row">
+
+							<div class="col-md-4">
+								<div class="trend_2im clearfix position-relative">
+									<div class="trend_2im1 clearfix">
+										<div class="grid">
+											<figure class="effect-jazz mb-0">
+												<img src="{% static 'img/img33.jpg' %}" class="d-block w-100" alt="...">
+											</figure>
+										</div>
+									</div>
+									<div class="trend_2im2 clearfix  position-absolute w-100 top-0">
+										<h5><a class="col_red" href="#"> The Crown</a></h5>
+										<span class="col_red">
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star"></i>
+										</span>
+
+									</div>
+								</div>
+
+							</div>
+							<div class="col-md-4">
+								<div class="trend_2im clearfix position-relative">
+									<div class="trend_2im1 clearfix">
+										<div class="grid">
+											<figure class="effect-jazz mb-0">
+												<img src="{% static 'img/img34.jpg' %}" class="d-block w-100" alt="...">
+											</figure>
+										</div>
+									</div>
+									<div class="trend_2im2 clearfix  position-absolute w-100 top-0">
+										<h5><a class="col_red" href="#">Anne</a></h5>
+										<span class="col_red">
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star"></i>
+										</span>
+
+									</div>
+								</div>
+
+							</div>
+							<div class="col-md-4">
+								<div class="trend_2im clearfix position-relative">
+									<div class="trend_2im1 clearfix">
+										<div class="grid">
+											<figure class="effect-jazz mb-0">
+												<img src="{% static 'img/img35.jpg' %}" class="d-block w-100" alt="...">
+											</figure>
+										</div>
+									</div>
+									<div class="trend_2im2 clearfix  position-absolute w-100 top-0">
+										<h5><a class="col_red" href="#">Extraordinary Attorney Woo</a></h5>
+										<span class="col_red">
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star"></i>
+										</span>
+
+									</div>
+								</div>
+
+
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+		</div>
+	</div>
 </section>
 
 <section id="play">
-<div class="play_m clearfix" style="background-color: #191a1d;">
- <div class="container">
- <div class="row trend_1">
-  <div class="col-md-12">
-   <div class="trend_1l">
-    <h4 class="mb-0"><i class="fa fa-youtube-play align-middle col_red me-1"></i> Top 10  <span class="col_red">Best Movies</span></h4>
-   </div>
-  </div>
- </div>
- <div class="play1 row mt-4 bg_grey pt-3 pb-3">
-  <div class="col-md-9">
-   <div class="play1l">
-     <div class="grid clearfix">
-				  <figure class="effect-jazz mb-0">
-					<img src="{% static 'img/01.jpg' %}" class="d-block w-100" alt="...">
-				  </figure>
-			  </div>
-   </div>
-  </div>
-  <div class="col-md-3 ps-0">
-   <div class="play1r" style="height: 542px;">
-     <div class="play1ri">
-	  <div class="grid clearfix">
-				  <figure class="effect-jazz mb-0">
-					<img src="{% static 'img/04.jpg' %}" class="d-block w-100" alt="...">
-				  </figure>
-			  </div>
-	 </div>
-	 <div class="play1ri mt-3">
-	  <div class="grid clearfix">
-				  <figure class="effect-jazz mb-0">
-					<img src="{% static 'img/05.jpg' %}" class="d-block w-100" alt="...">
-				  </figure>
-			  </div>
-	 </div>
-	 <div class="play1ri mt-3">
-	  <div class="grid clearfix">
-				  <figure class="effect-jazz mb-0">
-					<img src="{% static 'img/06.jpg' %}" class="d-block w-100" alt="...">
-				  </figure>
-			  </div>
-	 </div>
-	 <div class="play1ri mt-3">
-	  <div class="grid clearfix">
-				  <figure class="effect-jazz mb-0">
-					<img src="{% static 'img/07.jpg' %}" class="d-block w-100" alt="...">
-				  </figure>
-			  </div>
-	 </div>
-	 <div class="play1ri mt-3">
-	  <div class="grid clearfix">
-				  <figure class="effect-jazz mb-0">
-					<img src="{% static 'img/08.jpg' %}" class="d-block w-100" alt="...">
-				  </figure>
-			  </div>
-	 </div>
-	 <div class="play1ri mt-3">
-	  <div class="grid clearfix">
-				  <figure class="effect-jazz mb-0">
-					<img src="{% static 'img/09.jpg' %}" class="d-block w-100" alt="...">
-				  </figure>
-			  </div>
-	 </div>
-   </div>
-  </div>
- </div>
+	<div class="play_m clearfix" style="background-color: #191a1d;">
+		<div class="container">
+			<div class="row trend_1">
+				<div class="col-md-12">
+					<div class="trend_1l">
+						<h4 class="mb-0"><i class="fa fa-youtube-play align-middle col_red me-1"></i> Top 10 <span
+								class="col_red">Best Movies</span></h4>
+					</div>
+				</div>
+			</div>
+			<div class="play1 row mt-4 bg_grey pt-3 pb-3">
+				<div class="col-md-9">
+					<div class="play1l">
+						<div class="grid clearfix">
+							<figure class="effect-jazz mb-0">
+								<img src="{% static 'img/01.jpg' %}" class="d-block w-100" alt="...">
+							</figure>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3 ps-0">
+					<div class="play1r" style="height: 542px;">
+						<div class="play1ri">
+							<div class="grid clearfix">
+								<figure class="effect-jazz mb-0">
+									<img src="{% static 'img/04.jpg' %}" class="d-block w-100" alt="...">
+								</figure>
+							</div>
+						</div>
+						<div class="play1ri mt-3">
+							<div class="grid clearfix">
+								<figure class="effect-jazz mb-0">
+									<img src="{% static 'img/05.jpg' %}" class="d-block w-100" alt="...">
+								</figure>
+							</div>
+						</div>
+						<div class="play1ri mt-3">
+							<div class="grid clearfix">
+								<figure class="effect-jazz mb-0">
+									<img src="{% static 'img/06.jpg' %}" class="d-block w-100" alt="...">
+								</figure>
+							</div>
+						</div>
+						<div class="play1ri mt-3">
+							<div class="grid clearfix">
+								<figure class="effect-jazz mb-0">
+									<img src="{% static 'img/07.jpg' %}" class="d-block w-100" alt="...">
+								</figure>
+							</div>
+						</div>
+						<div class="play1ri mt-3">
+							<div class="grid clearfix">
+								<figure class="effect-jazz mb-0">
+									<img src="{% static 'img/08.jpg' %}" class="d-block w-100" alt="...">
+								</figure>
+							</div>
+						</div>
+						<div class="play1ri mt-3">
+							<div class="grid clearfix">
+								<figure class="effect-jazz mb-0">
+									<img src="{% static 'img/09.jpg' %}" class="d-block w-100" alt="...">
+								</figure>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 </section>
-
-
-
-<section id="footer">
-<div class="footer_m clearfix" style="background-color: black;">
- <div class="container" >
-   <div class="row footer_1">
-    <div class="col-md-4">
-	 <div class="footer_1i">
-	   <h3><a class="text-white" href="index.html"><i class="fa fa-video-camera col_red me-1"></i> Planet</a></h3>
-	   <p class="mt-3">DPT Movie is a self-designed movie website, built by a development team passionate about cinema and technology. This website was created to provide users with a fun and convenient experience when searching, discovering and watching movies.</p>
-	   <h6 class="fw-normal"><i class="fa fa-map-marker fs-5 align-middle col_red me-1"></i> 54 Nguyen Luong Bang - Lien Chieu - Da Nang</h6>
-        <h6 class="fw-normal mt-3"><i class="fa fa-envelope fs-5 align-middle col_red me-1"></i> dptmovie@gmail.com</h6>
-		<h6 class="fw-normal mt-3 mb-0"><i class="fa fa-phone fs-5 align-middle col_red me-1"></i>  +123 123 456</h6>
-	 </div>
-	</div>
-	<div class="col-md-4">
-	 <div class="footer_1i">
-	  <h4>Flickr <span class="col_red">Stream</span></h4>
-      <div class="footer_1i1 row mt-4">
-	   <div class="col-md-3 col-3">
-	    <div class="footer_1i1i">
-		  <div class="grid clearfix">
-				  <figure class="effect-jazz mb-0">
-					<img src="{% static 'img/04.jpg' %}" class="d-block w-100" alt="...">
-				  </figure>
-			  </div>
-		</div>
-	   </div>
-	   <div class="col-md-3 col-3">
-	    <div class="footer_1i1i">
-		  <div class="grid clearfix">
-				  <figure class="effect-jazz mb-0">
-					<img src="{% static 'img/05.jpg' %}" class="d-block w-100" alt="...">
-				  </figure>
-			  </div>
-		</div>
-	   </div>
-	   <div class="col-md-3 col-3">
-	    <div class="footer_1i1i">
-		  <div class="grid clearfix">
-				  <figure class="effect-jazz mb-0">
-					<img src="{% static 'img/06.jpg' %}" class="d-block w-100" alt="...">
-				  </figure>
-			  </div>
-		</div>
-	   </div>
-	   <div class="col-md-3 col-3">
-	    <div class="footer_1i1i">
-		  <div class="grid clearfix">
-				  <figure class="effect-jazz mb-0">
-					<img src="{% static 'img/07.jpg' %}" class="d-block w-100" alt="...">
-				  </figure>
-			  </div>
-		</div>
-	   </div>
-	  </div>
-	  <div class="footer_1i1 row mt-3">
-	   <div class="col-md-3 col-3">
-	    <div class="footer_1i1i">
-		  <div class="grid clearfix">
-				  <figure class="effect-jazz mb-0">
-					<img src="{% static 'img/08.jpg' %}" class="d-block w-100" alt="...">
-				  </figure>
-			  </div>
-		</div>
-	   </div>
-	   <div class="col-md-3 col-3">
-	    <div class="footer_1i1i">
-		  <div class="grid clearfix">
-				  <figure class="effect-jazz mb-0">
-					<img src="{% static 'img/09.jpg' %}" class="d-block w-100" alt="...">
-				  </figure>
-			  </div>
-		</div>
-	   </div>
-	   <div class="col-md-3 col-3">
-	    <div class="footer_1i1i">
-		  <div class="grid clearfix">
-				  <figure class="effect-jazz mb-0">
-					<img src="{% static 'img/img10.jpg' %}" class="d-block w-100" alt="...">
-				  </figure>
-			  </div>
-		</div>
-	   </div>
-	   <div class="col-md-3 col-3">
-	    <div class="footer_1i1i">
-		  <div class="grid clearfix">
-				  <figure class="effect-jazz mb-0">
-					<img src="{% static 'img/img11.jpg' %}" class="d-block w-100" alt="...">
-				  </figure>
-			  </div>
-		</div>
-	   </div>
-	  </div>
-	 </div>
-	</div>
-	<div class="col-md-4">
-	 <div class="footer_1i">
-	  <h4>Sign  <span class="col_red">Newsletter</span></h4>
-      <p class="mt-3">Subscribe to our newsletter list to get latest news and updates from us</p>
-	  <div class="input-group">
-				<input type="text" class="form-control bg-black" placeholder="Email">
-				<span class="input-group-btn">
-					<button class="btn btn text-white bg_red rounded-0 border-0" type="button">
-						 Subscribe</button>
-				</span>
-		</div>
-		<ul class="social-network social-circle mb-0 mt-4">
-			<li><a href="#" class="icoRss" title="Rss"><i class="fa fa-instagram"></i></a></li>
-			<li><a href="#" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
-			<li><a href="#" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
-			<li><a href="#" class="icoGoogle" title="Google +"><i class="fa fa-youtube"></i></a></li>
-			<li><a href="#" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
-		</ul>
-	 </div>
-	</div>
-   </div>
-</div>
-</div>
-</section>
-
-
-<script>
-window.onscroll = function() {myFunction()};
-
-var navbar_sticky = document.getElementById("navbar_sticky");
-var sticky = navbar_sticky.offsetTop;
-var navbar_height = document.querySelector('.navbar').offsetHeight;
-
-function myFunction() {
-  if (window.pageYOffset >= sticky + navbar_height) {
-    navbar_sticky.classList.add("sticky")
-	document.body.style.paddingTop = navbar_height + 'px';
-  } else {
-    navbar_sticky.classList.remove("sticky");
-	document.body.style.paddingTop = '0'
-  }
-}
-</script>
-
-</body>
-
-</html>
+{% endblock %}
