@@ -37,7 +37,7 @@
           </div>
           <div class="trend_2ilast bg_grey p-3 clearfix">
             <h5><a class="col_red" href="{% url 'movie_detail' movie.id %}" id="showModal">{{ movie.title }}</a></h5>
-            <p class="mb-2">The Croods is a 2013 animation film written, directed, and produced</p>
+            <p class="mb-2">{{ movie.overview|slice:":90" }}</p>
             <span class="col_red">
               <i class="fa fa-star"></i>
               <i class="fa fa-star"></i>
@@ -50,7 +50,7 @@
         </div>
         {% endfor %}
 
-      <div class="row trend_2 mt-4">
+      <!-- <div class="row trend_2 mt-4">
         <div class="pagination">
           <a href="#" class="prev"><i class="fa fa-chevron-left"></i></a>
           <a href="#" class="page">1</a>
@@ -59,7 +59,7 @@
           <a href="#" class="page">4</a>
           <a href="#" class="page">5</a>
           <a href="#" class="prev"><i class="fa fa-chevron-right"></i></a>
-      </div>
+      </div> -->
       </div>
     </div>
 </section>

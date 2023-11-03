@@ -92,19 +92,37 @@ def movie_detail(request, movie_id):
     first_section = related_movies[:num_movies_per_section]
     second_section = related_movies[num_movies_per_section:]
 
-    # Lấy danh sách diễn viên
-    url = f'https://api.themoviedb.org/3/movie/{movie_id}/credits?api_key=8265bd1679663a7ea12ac168da84d2e8&language=en-US'
-
-    response = requests.get(url) # Gửi yêu cầu GET đến API
+    # Lấy danh sách diễn viên, đạo diễn
+    url_credits = f'https://api.themoviedb.org/3/movie/{movie_id}/credits?api_key=8265bd1679663a7ea12ac168da84d2e8&language=en-US'
+    response = requests.get(url_credits) # Gửi yêu cầu GET đến API
     response.raise_for_status()  # Kiểm tra lỗi trong yêu cầu
     data = response.json() # Chuyển đổi dữ liệu JSON trả về thành một đối tượng Python
-    cast_list = data.get('cast', [])[:8] # Lấy danh sách diễn viên từ dữ liệu JSON
+    casts = data.get('cast', [])[:8] # Lấy danh sách từ dữ liệu JSON
+    directors = [crew for crew in data.get('crew', []) if crew.get('job') == 'Director']
+
+    num_casts_per_row = len(casts) // 2
+    first_row = casts[:num_casts_per_row]
+    second_row = casts[num_casts_per_row:]
+
+    # Lấy danh sách thể loại
+    url_movie = f'https://api.themoviedb.org/3/movie/{movie_id}?api_key=8265bd1679663a7ea12ac168da84d2e8&language=en-US'
+    response = requests.get(url_movie)
+    response.raise_for_status()
+    data_movie = response.json()
+    genres = data_movie.get('genres', [])
+    countries = data_movie.get('production_countries', [])
+
 
     context = {
         'movie': current_movie,
         'first_section': first_section,
         'second_section': second_section,
-        'casts': cast_list,
+        'casts': casts,
+        'first_row': first_row,
+        'second_row': second_row,
+        'genres': genres,
+        'countries': countries,
+        'directors': directors,
     }
 
     return render(request, 'movie_detail.html', context)

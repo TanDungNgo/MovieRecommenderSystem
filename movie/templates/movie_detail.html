@@ -12,7 +12,7 @@
       </div>
       <div class="card-top-info">
         <h4 class="mb-0"><span class="col_red">{{ movie.title }}</span></h4>
-        <h5><span>{{ movie.overview }}</span></h5><br><br><br>
+        <h5><span>{{ movie.overview }}</span></h5><br><br/><br/>
         <h5>Rating:
           <i class="fa fa-star align-middle"></i>
           <i class="fa fa-star align-middle"></i>
@@ -22,22 +22,52 @@
         </h5>
         <h5>Duration:<span> {{ movie.movie_duration }}</span></h5>
         <h5>Release Date:<span> {{ movie.release_date }}</span></h5>
-        <h5>Genre:<span> Emotional</span></h5>
-        <h5>Director:<span> Kirk DeMicco, Chris Sanders</span></h5>
-        <h5>Country:<span> United States</span></h5>
+        <h5>Genres:
+          {% for genre in genres %}
+          <span style="margin-right: 20px;"> {{ genre.name }} </span>
+          {% endfor %}
+        </h5>
+        <h5>Directors:
+          {% for director in directors %}
+          <span style="margin-right: 20px;"> {{ director.name }} </span>
+          {% endfor %}
+        </h5>
+        <h5>Countries:
+          {% for country in countries %}
+          <span style="margin-right: 20px;"> {{ country.name }} </span>
+          {% endfor %}
+        </h5>
       </div>
     </div>
     <div class="card-actor">
-      <h5 style="font-size: 30px; margin: 50px 0 20px 0;">Actors</h5>
-      <div class="card-actor-info" style="display: flex; justify-content: space-between; text-align: center; margin-bottom: 50px;">
-        {% for cast in casts %}
-          <div class="card-actor-item">
+      <h5 style="font-size: 30px; margin: 50px 0 20px 0;">Top casts</h5>
+      <div class="card-actor-info" style="display: flex; margin-bottom: 50px; justify-content: space-between;">
+        {% for cast in first_row %}
+          <div class="card-actor-item" style="display: flex;">
             {% if cast.profile_path %}
-              <img src="https://image.tmdb.org/t/p/w185{{ cast.profile_path }}" style="height: 200px; margin-bottom: 7px; object-fit: cover;"/><br/>
+              <img src="https://image.tmdb.org/t/p/w185{{ cast.profile_path }}" style="height: 200px; margin-right: 10px; object-fit: cover;"/><br/>
             {% else %}
-              <img src="{% static '/img/default-image.jpg' %}" style="height: 200px; width: 133px; margin-bottom: 7px; object-fit: cover;"/><br/>
+              <img src="{% static '/img/default-image.jpg' %}" style="height: 200px; width: 133px; margin-right: 10px; object-fit: cover;"/><br/>
             {% endif %}
-            <span>{{ cast.name }}</span>
+            <div style="width: 200px;">
+              <span style="font-weight: 800; font-size: 18px;">{{ cast.name }}</span><br/>
+              <span>{{ cast.character }}</span>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+      <div class="card-actor-info" style="display: flex; margin-bottom: 50px; justify-content: space-between;">
+        {% for cast in second_row %}
+          <div class="card-actor-item" style="display: flex;">
+            {% if cast.profile_path %}
+              <img src="https://image.tmdb.org/t/p/w185{{ cast.profile_path }}" style="height: 200px; margin-right: 10px; object-fit: cover;"/><br/>
+            {% else %}
+              <img src="{% static '/img/default-image.jpg' %}" style="height: 200px; width: 133px; margin-right: 10px; object-fit: cover;"/><br/>
+            {% endif %}
+            <div style="width: 200px;">
+              <span style="font-weight: 800; font-size: 18px;">{{ cast.name }}</span><br/>
+              <span>{{ cast.character }}</span>
+            </div>
           </div>
         {% endfor %}
       </div>
